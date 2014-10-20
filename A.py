@@ -5,12 +5,13 @@ import numpy as np
 from distance import get_distance
 from config import TRAIN_DATA, DEBUG_DATA, FILE_FORMAT
 
-def make3DHist(dlongbinsize, dlatbinsize, data):
+def make3DHist(dlongbinsize, dlatbinsize, data, pc_count):
     """
-    float float pandas.DataFrame -> ???
+    float float pandas.DataFrame int -> None
 
-    Given the parameters for binsize and a matrix of data, 
-    produces (saves to file) a 3DHistogram
+    Given the parameters for binsize, a 2xN matrix of dropoff
+    longitudes and latitudes, and the (constant) passenger count for all of 
+    those dropoff points, produces (saves to file) a labeled 3DHistogram
     """
     pass
 
@@ -42,8 +43,6 @@ def main():
         P(passenger count=1|dropoff longitude, dropoff latitude)
         P(passenger count=3|dropoff longitude, dropoff latitude)
     """
-    # import pdb
-    # pdb.set_trace()
     # Calculate bin sizes. We want dlongbinsize to be ~ 1/20 mile, and 
     # dlatbinsize to be ~1/7 of a mile, as this corresponds roughly to a NYC block
     dlongbinsize = calcBinSize(float(1)/20, "long")

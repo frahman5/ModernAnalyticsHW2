@@ -13,4 +13,5 @@ __pycache__/
 .DS_Store
 
 # csvs are large man
-.csv
+/data
+*.csv

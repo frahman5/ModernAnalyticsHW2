@@ -1,6 +1,8 @@
 
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
+from config import TRAIN_DATA, TRIP_DATA_2
+
 def euclideanDistance(vector1, vector2):
     """
     TupleOfFloats TupleOfFloats -> float
@@ -28,8 +30,26 @@ def main():
 
     Tests on a subset of trip_data_1.csv
     """
-    pass
+    features = ['pickup latitude', 'pickup longitude', 'dropoff_latitude', 
+               'dropoff_longitude', 'trip_time_in_secs']
+    # Train
+    train_data = pd.read_csv( TRAIN_DATA )[features]
 
+    # Test
+    test_data = pd.read_csv( TRIP_DATA_2 )[features]
+    predictions, true_values = [], []
+    for plat_test, plong_test, dlat_test, dlong_test, trip_time_test in test_data.itertuples():
+        distances = []
+        for plat_train, plong_train, dlat_train, dlong_train, trip_time_train in train_data.itertuples():
+            distances.append(euclideanDistance((plat_test, plong_test, dlat_test, d_long_test), 
+                                               (plat_train, plong_train, dlat_train, dlong_train)))
+            nearest_neighbor_index = distances.index(min(distances))
+            predictions.append(train_data['trip_time_in_secs'][nearest_neighbor_index])
+            true_values.append(trip_time_test)
+
+    # Calculate statistics
+    pass
+    
 # Usage: python B.py
 if __name__ == '__main__':
     main()

@@ -11,3 +11,6 @@ __pycache__/
 
 # What is this thing????
 .DS_Store
+
+# csvs are large man
+.csv

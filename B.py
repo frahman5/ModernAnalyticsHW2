@@ -1,6 +1,7 @@
-
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
+import numpy
+import pandas as pd
 from config import TRAIN_DATA, TRIP_DATA_2
 
 def euclideanDistance(vector1, vector2):
@@ -9,19 +10,32 @@ def euclideanDistance(vector1, vector2):
 
     Given two length-n vectors, returns the euclidean distance between them
     """
+    assert len(vector1) == len(vector2)                 # defense yo
     import math
+
     distance = 0
-    for x in range(length(vector1)):
+    for x in range(len(vector1)):
         distance += pow((vector1[x] - vector2[x]), 2)
     return math.sqrt(distance)
 
-    v1 = [-73.978165,40.757977,-73.989838,40.75117]
-    v2 = [-74.006683,40.731781,-73.994499,40.75066]
+def calcStats(y, yhat):
+    """
+    numpy.array numpy.array -> (float, float, float)
 
-    print euclideanDistance(v1,v2,4)
+    Given two length n lists, returns values for the following statistics:
+        Root Mean Squared Error (RMSE)
+        Correlation Coefficient
+        Mean Absolute Error
+    """
+    deltas = y-yhat
+    dimension = len(y)
 
+    ols_error = sum(numpy.square((deltas)))
+    rmse = (ols_error/dimension)**0.5
+    corr = numpy.corrcoef(y,yhat)
+    mean_absolute_error = (sum(numpy.absolute((deltas))))/dimension
 
-
+    return rmse, corr, mean_absolute_error
 
 def main():
     """
@@ -36,7 +50,8 @@ def main():
     train_data = pd.read_csv( TRAIN_DATA )[features]
 
     # Test
-    test_data = pd.read_csv( TRIP_DATA_2 )[features]
+    limit = 100000
+    test_data = pd.read_csv( TRIP_DATA_2 , nrows=limit)[features]
     predictions, true_values = [], []
     for plat_test, plong_test, dlat_test, dlong_test, trip_time_test in test_data.itertuples():
         distances = []
@@ -47,8 +62,12 @@ def main():
             predictions.append(train_data['trip_time_in_secs'][nearest_neighbor_index])
             true_values.append(trip_time_test)
 
-    # Calculate statistics
-    pass
+    # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
+    rmse, corr, mae = calcStats(numpy.array(predictions), numpy.array(true_values))
+    print "Statistics yo:"
+    print "-->Root Mean Squared Error: {}".format(rmse)
+    print "-->Correlation Coefficient: {}".format(corr)
+    print "-->Mean Absolute Error: {}".format(mae)
     
 # Usage: python B.py
 if __name__ == '__main__':

@@ -9,3 +9,5 @@ __pycache__/
 #logs are intentionally disabled
 #*.log
 
+# What is this thing????
+.DS_Store

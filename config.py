@@ -9,6 +9,7 @@ All constants should go here.
 # TRAIN_DATA = "/Users/aub3/code/taxidata/train_data.csv" # contains every 20th trip from trip_data_2.csv
 DEBUG_DATA = "example_data.csv"
 TRAIN_DATA = ""
+TRIP_DATA_2 = ""
 
 FILE_FORMAT ={
     '0':'medallion',

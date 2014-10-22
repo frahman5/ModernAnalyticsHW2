@@ -17,12 +17,19 @@ def transformPickupDatetime(row):
     Function converts pickup_datetime to a float indicating how many 
     minutes have passed since Midnight.
     """
+    # Extract the pickup datetime
     pickup_datetime = row[0]
     assert type(pickup_datetime) == str
 
+    # Convert it to minutes that have elapsed in the day
     dateInfo, timeInfo = pickup_datetime.split(' ')
     num_hours_string, num_minutes_string, num_seconds_string = timeInfo.split(':')
-    time_of_day_in_minutes = (int(num_hours_string) * 60) * 
+    time_of_day_in_minutes = (int(num_hours_string) * 60) + int(num_minutes_string)
+
+    # Update and return the row
+    row[0] = time_of_day_in_minutes
+    return row
+
 def main():
     """
     Using 1 nearest neighbor, predicts NYC Taxi trip times based on feature 
@@ -38,7 +45,8 @@ def main():
     # Load test data
     test_data = load_csv_lazy( TRIP_DATA_2, 
         str_fields=[FILE_FORMAT_REVERSE[feature] for feature in str_features], 
-        float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features] )
+        float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
+        row_tranformer=transformPickupDatetime)
 
     predictions, true_values = [], []                   # these will hold our results
     for index_test, values_test in enumerate(test_data):
@@ -48,23 +56,26 @@ def main():
             print "Index Test: {}. Percentage Done: {}".format(index_test, float(index_test)/100000 * 100)
         
         # extract data
-        plat_test, plong_test, dlat_test, dlong_test, trip_time_test = values_test
-
-        
-        # load train dating
-        train_data = load_csv_lazy( TRAIN_DATA, str_fields=[], 
-            float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
+        timeofday_test, plat_test, plong_test, dlat_test, dlong_test, trip_time_test, trip_distance_test = values_test
+        # load train data
+        train_data = load_csv_lazy( TRAIN_DATA, 
+            str_fields=[FILE_FORMAT_REVERSE[feature] for feature in str_features], 
+            float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
+            row_tranformer=transformPickupDatetime)
 
         best_distance = float('inf')                    # keeps track of distance
         best_prediction = None                          # tracks best prediction
         for index_train, values_train in enumerate(train_data):
 
             # Extract the data
-            plat_train, plong_train, dlat_train, dlong_train, trip_time_train = values_train
+            timeofday_train, plat_train, plong_train, dlat_train, dlong_train, trip_time_train, trip_distance_train = values_train
 
             # Calculate the new distance
-            new_distance = euclideanDistance((plat_test, plong_test, dlat_test, dlong_test), 
-                                               (plat_train, plong_train, dlat_train, dlong_train))
+            new_distance = euclideanDistance(
+                (timeofday_test, plat_test, plong_test, dlat_test, 
+                    dlong_test, trip_time_test, trip_distance_test), 
+                (timeofday_train, plat_train, plong_train, dlat_train,
+                    dlong_train, trip_time_train, trip_distance_train))
 
             # Update the best prediction and distance if necessary
             if new_distance < best_distance:

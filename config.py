@@ -8,7 +8,7 @@ All constants should go here.
 # TRIP_DATA_2 = "/Users/aub3/code/taxidata/trip_data_2.csv" # Large data files can be outside your directory structure
 # TRAIN_DATA = "/Users/aub3/code/taxidata/train_data.csv" # contains every 20th trip from trip_data_2.csv
 # ROOT = "/Users/rachel/CS5785/ModernAnalyticsHW2"
-ROOT = "/Users/faiyamrahman/Documents/CornellTech/ModernAnalytics"
+ROOT = "/Users/faiyamrahman/Documents/CornellTech/ModernAnalytics/Homework2"
 EXAMPLE_DATA = ROOT + "/data/example_data.csv"
 TRAIN_DATA = ROOT + "/data/train_data.csv"
 TRIP_DATA_2 = ROOT + "/data/trip_data_2.csv"
@@ -30,6 +30,8 @@ FILE_FORMAT ={
     '12':'dropoff_longitude',
     '13':'dropoff_latitude'
 }
+
+FILE_FORMAT_REVERSE = {value:key for key, value in FILE_FORMAT.iteritems()}
 
 F_FIELDS  = [8,9,10,11,12,13] # Float fields
 S_FIELDS = [5,] # String fields

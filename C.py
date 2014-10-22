@@ -85,4 +85,5 @@ def main():
 if __name__ == '__main__':
 
     # Short test for row transformer
-    assert()
+    row_test = [2013-01-01 15:11:48,382,1.00,-73.978165,40.757977,-73.989838,40.751171]
+    assert([911.8,382,1.00,-73.978165,40.757977,-73.989838,40.751171] == transformPickupDatetime(row_test))

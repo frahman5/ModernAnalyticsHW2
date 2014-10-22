@@ -1,8 +1,10 @@
+
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 import numpy
 import pandas as pd
-from config import TRAIN_DATA, TRIP_DATA_2
+from config import TRAIN_DATA, TRIP_DATA_2, FILE_FORMAT_REVERSE
+from code.utils import load_csv_lazy
 
 def euclideanDistance(vector1, vector2):
     """
@@ -27,7 +29,7 @@ def calcStats(y, yhat):
         Correlation Coefficient
         Mean Absolute Error
     """
-    deltas = y-yhat
+    deltas = y - yhat
     dimension = len(y)
 
     ols_error = sum(numpy.square((deltas)))
@@ -44,23 +46,48 @@ def main():
 
     Tests on a subset of trip_data_1.csv
     """
-    features = ['pickup latitude', 'pickup longitude', 'dropoff_latitude', 
+    # The features we want to operate on
+    features = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 
                'dropoff_longitude', 'trip_time_in_secs']
-    # Train
-    train_data = pd.read_csv( TRAIN_DATA )[features]
 
-    # Test
-    limit = 100000
-    test_data = pd.read_csv( TRIP_DATA_2 , nrows=limit)[features]
-    predictions, true_values = [], []
-    for plat_test, plong_test, dlat_test, dlong_test, trip_time_test in test_data.itertuples():
-        distances = []
-        for plat_train, plong_train, dlat_train, dlong_train, trip_time_train in train_data.itertuples():
-            distances.append(euclideanDistance((plat_test, plong_test, dlat_test, d_long_test), 
-                                               (plat_train, plong_train, dlat_train, dlong_train)))
-            nearest_neighbor_index = distances.index(min(distances))
-            predictions.append(train_data['trip_time_in_secs'][nearest_neighbor_index])
-            true_values.append(trip_time_test)
+    # Load test data
+    test_data = load_csv_lazy( TRIP_DATA_2, str_fields=[], 
+        float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
+
+    predictions, true_values = [], []                   # these will hold our results
+    for index_test, values_test in enumerate(test_data):
+        if index_test % 100 == 0:
+            if index_test == 100000:
+                break                                   # only do the first 100 k trips
+            print "Index Test: {}".format(index_test)
+        
+        # extract data
+        plat_test, plong_test, dlat_test, dlong_test, trip_time_test = values_test
+
+        
+        # load train dating
+        train_data = load_csv_lazy( TRAIN_DATA, str_fields=[], 
+            float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
+
+        best_distance = float('inf')                    # keeps track of distance
+        best_prediction = None                          # tracks best prediction
+        for index_train, values_train in enumerate(train_data):
+
+            # Extract the data
+            plat_train, plong_train, dlat_train, dlong_train, trip_time_train = values_train
+
+            # Calculate the new distance
+            new_distance = euclideanDistance((plat_test, plong_test, dlat_test, dlong_test), 
+                                               (plat_train, plong_train, dlat_train, dlong_train))
+
+            # Update the best prediction and distance if necessary
+            if new_distance < best_distance:
+                best_distance = new_distance
+                best_prediction = trip_time_train
+
+        assert best_prediction                          # Should never be None
+        predictions.append(best_prediction)
+        true_values.append(trip_time_test)
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     rmse, corr, mae = calcStats(numpy.array(predictions), numpy.array(true_values))
@@ -72,4 +99,3 @@ def main():
 # Usage: python B.py
 if __name__ == '__main__':
     main()
-

@@ -30,5 +30,9 @@ FILE_FORMAT ={
     '13':'dropoff_latitude'
 }
 
+
+
+FILE_FORMAT_REVERSE = {value:key for key, value in FILE_FORMAT.iteritems()}
+
 F_FIELDS  = [8,9,10,11,12,13] # Float fields
 S_FIELDS = [5,] # String fields

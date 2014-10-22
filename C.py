@@ -1,6 +1,8 @@
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 import numpy
+from config import TRAIN_DATA, TRIP_DATA_2, FILE_FORMAT_REVERSE
+from code.utils import load_csv_lazy
 from B import euclideanDistance, calcStats
 
 def transformPickupDatetime(row):
@@ -44,7 +46,7 @@ def main():
 
     # Load test data
     test_data = load_csv_lazy( TRIP_DATA_2, 
-        str_fields=[FILE_FORMAT_REVERSE[feature] for feature in str_features], 
+        str_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in str_features], 
         float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
         row_tranformer=transformPickupDatetime)
 
@@ -59,7 +61,7 @@ def main():
         timeofday_test, plat_test, plong_test, dlat_test, dlong_test, trip_time_test, trip_distance_test = values_test
         # load train data
         train_data = load_csv_lazy( TRAIN_DATA, 
-            str_fields=[FILE_FORMAT_REVERSE[feature] for feature in str_features], 
+            str_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in str_features], 
             float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
             row_tranformer=transformPickupDatetime)
 
@@ -96,5 +98,8 @@ def main():
 if __name__ == '__main__':
 
     # Short test for row transformer
-    row_test = [2013-01-01 15:11:48,382,1.00,-73.978165,40.757977,-73.989838,40.751171]
-    assert([911.8,382,1.00,-73.978165,40.757977,-73.989838,40.751171] == transformPickupDatetime(row_test))
+    row_test = ['2013-01-01 15:11:48',382,1.00,-73.978165,40.757977,-73.989838,40.751171]
+    assert([911,382,1.00,-73.978165,40.757977,-73.989838,40.751171] == transformPickupDatetime(row_test))
+    print "all tests passed yo!"
+
+    main()

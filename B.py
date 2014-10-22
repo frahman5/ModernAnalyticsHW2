@@ -55,10 +55,10 @@ def main():
 
     predictions, true_values = [], []                   # these will hold our results
     for index_test, values_test in enumerate(test_data):
-        if index_test % 100 == 0:
+        if index_test % 10 == 0:
             if index_test == 100000:
                 break                                   # only do the first 100 k trips
-            print "Index Test: {}".format(index_test)
+            print "Index Test: {}. Percentage Done: {}".format(index_test, float(index_test)/100000 * 100)
         
         # extract data
         plat_test, plong_test, dlat_test, dlong_test, trip_time_test = values_test

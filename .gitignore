@@ -13,5 +13,7 @@ __pycache__/
 .DS_Store
 
 # csvs are large man
-/data
 *.csv
+
+#igonore movie files
+*.gz

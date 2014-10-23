@@ -74,7 +74,7 @@ def ifilter(row):
     return True
 
 
-def load_csv_lazy(fname,str_fields,float_fields,exclude_first=True,row_filter=ifilter,row_tranformer=itransformer):
+def load_csv_lazy(fname,str_fields,float_fields,exclude_first=True,row_filter=ifilter,row_tranforme=itransformer):
     """
     np.genfromtxt is a good alternative, not sure if it can act as a generator. pandas frames are also a good alternative.
     :param fname:

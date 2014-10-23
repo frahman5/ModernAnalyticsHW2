@@ -5,7 +5,6 @@ import numpy
 from config import TRAIN_DATA, TRIP_DATA_2, TRIP_DATA_1, FILE_FORMAT_REVERSE
 from code.utils import load_csv_lazy
 import pandas as pd
-import pylab as pl
 from sklearn.neighbors import KNeighborsClassifier
  
  

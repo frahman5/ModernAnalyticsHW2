@@ -3,6 +3,31 @@ from sklearn import linear_model
 from distance import get_distance
 # logging.basicConfig(filename='logs/utils.log',level=logging.DEBUG,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+def calcStats(y, yhat):
+    """
+    numpy.array numpy.array -> (float, float, float)
+
+    Given two length n lists, returns values for the following statistics:
+        Root Mean Squared Error (RMSE)
+        Correlation Coefficient
+        Mean Absolute Error
+    """
+    print "calculating deltas"
+    deltas = y - yhat
+    print "calculating length of input"
+    dimension = len(y)
+
+    print "calculating ols error"
+    ols_error = sum(numpy.square((deltas)))
+    print "calculating rmse"
+    rmse = (ols_error/dimension)**0.5
+    print "calculating correlation coefficient"
+    corr = numpy.corrcoef(y,yhat)
+    print "Calculating mean absolute error"
+    mean_absolute_error = (sum(numpy.absolute((deltas))))/dimension
+
+    return rmse, corr, mean_absolute_error
+
 def metrics(model,x,y):
     """
     compute ols and rmse

@@ -1,17 +1,14 @@
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 import numpy
-from config import TRAIN_DATA, TRIP_DATA_2, FILE_FORMAT_REVERSE
-from code.utils import load_csv_lazy
-from B import euclideanDistance, calcStats
+import pandas as pd
+from config import TRAIN_DATA, TRIP_DATA_1, FILE_FORMAT_REVERSE
+from code.utils import calcStats
+from sklearn.neighbors import KNeighborsClassifier
 
-def transformPickupDatetime(row):
+def transformPickupDatetime(pickup_datetime):
     """
-    ListOfStringsAndFloats -> ListOfStringsAndFloats
-
-    Operates on rows of 
-        [pickup_datetime, pickup_latitude, pickup_longitude, dropoff_latitude, 
-         dropoff_longitude, trip_time_in_secs, trip_distance]
+    string -> float
 
     pickup_datetime is a string of format:
         yyyy-mm-dd hh:mm:ss
@@ -20,7 +17,6 @@ def transformPickupDatetime(row):
     minutes have passed since Midnight.
     """
     # Extract the pickup datetime
-    pickup_datetime = row[0]
     assert type(pickup_datetime) == str
 
     # Convert it to minutes that have elapsed in the day
@@ -28,9 +24,7 @@ def transformPickupDatetime(row):
     num_hours_string, num_minutes_string, num_seconds_string = timeInfo.split(':')
     time_of_day_in_minutes = (int(num_hours_string) * 60) + int(num_minutes_string)
 
-    # Update and return the row
-    row[0] = time_of_day_in_minutes
-    return row
+    return time_of_day_in_minutes
 
 def main():
     """
@@ -39,67 +33,34 @@ def main():
 
     Tests on a subset of trip_data_1.csv
     """
-    # The features we want to operate on
-    str_features = ['pickup_datetime']
-    float_features = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 
-               'dropoff_longitude', 'trip_time_in_secs', 'trip_distance']
+    features = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 
+               'dropoff_longitude', 'trip_distance', 'pickup_datetime', 
+               'trip_time_in_secs']
 
-    # Load test data
-    test_data = load_csv_lazy( TRIP_DATA_2, 
-        str_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in str_features], 
-        float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
-        row_tranformer=transformPickupDatetime)
+    ## Extract necessary data into pandas dataframes
+        # Read them in
+    df_train_read = pd.read_csv(TRAIN_DATA)
+    df_test_read = pd.read_csv(TRIP_DATA_1, nrows = 1000000)    # first 100k rows, for speed
+        # Extract desired features and drop null values
+    df_test = df_test_read[features].dropna()
+    df_train = df_train_read[features].dropna() 
+        # Transform pickup_datetime
+    df_test['pickup_datetime'] = df_test['pickup_datetime'].apply(transformPickupDatetime)
+    df_train['pickup_datetime'] = df_train['pickup_datetime'].apply(transformPickupDatetime)
 
-    predictions, true_values = [], []                   # these will hold our results
-    for index_test, values_test in enumerate(test_data):
-        if index_test % 10 == 0:
-            if index_test == 100000:
-                break                                   # only do the first 100 k trips
-            print "Index Test: {}. Percentage Done: {}".format(index_test, float(index_test)/100000 * 100)
-        
-        # extract data
-        timeofday_test, plat_test, plong_test, dlat_test, dlong_test, trip_time_test, trip_distance_test = values_test
-        # load train data
-        train_data = load_csv_lazy( TRAIN_DATA, 
-            str_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in str_features], 
-            float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in float_features],
-            row_tranformer=transformPickupDatetime)
-
-        best_distance = float('inf')                    # keeps track of distance
-        best_prediction = None                          # tracks best prediction
-        for index_train, values_train in enumerate(train_data):
-
-            # Extract the data
-            timeofday_train, plat_train, plong_train, dlat_train, dlong_train, trip_time_train, trip_distance_train = values_train
-
-            # Calculate the new distance
-            new_distance = euclideanDistance(
-                (timeofday_test, plat_test, plong_test, dlat_test, 
-                    dlong_test, trip_time_test, trip_distance_test), 
-                (timeofday_train, plat_train, plong_train, dlat_train,
-                    dlong_train, trip_time_train, trip_distance_train))
-
-            # Update the best prediction and distance if necessary
-            if new_distance < best_distance:
-                best_distance = new_distance
-                best_prediction = trip_time_train
-
-        assert best_prediction                          # Should never be None
-        predictions.append(best_prediction)
-        true_values.append(trip_time_test)
+    ## Use sklearn to run nearest neighbors
+    k = 1 
+    clf = KNeighborsClassifier(n_neighbors=k)                   # default distance metric: euclidean
+    clf.fit(df_train[features[0:5]], df_train[features[-1]])
+    preds = clf.predict(df_test[features[0:5]])
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
-    rmse, corr, mae = calcStats(numpy.array(predictions), numpy.array(true_values))
-    print "Statistics yo:"
+    print "Calculating statistics"
+    rmse, corr, mae = calcStats(numpy.array(preds), numpy.array(df_test[features[-1]]))
     print "-->Root Mean Squared Error: {}".format(rmse)
     print "-->Correlation Coefficient: {}".format(corr)
     print "-->Mean Absolute Error: {}".format(mae)
-
+    
 if __name__ == '__main__':
-
-    # Short test for row transformer
-    row_test = ['2013-01-01 15:11:48',382,1.00,-73.978165,40.757977,-73.989838,40.751171]
-    assert([911,382,1.00,-73.978165,40.757977,-73.989838,40.751171] == transformPickupDatetime(row_test))
-    print "all tests passed yo!"
 
     main()

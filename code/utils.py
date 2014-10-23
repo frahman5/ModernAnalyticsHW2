@@ -28,6 +28,26 @@ def calcStats(y, yhat):
 
     return rmse, corr, mean_absolute_error
 
+def transformPickupDatetime(pickup_datetime):
+    """
+    string -> float
+
+    pickup_datetime is a string of format:
+        yyyy-mm-dd hh:mm:ss
+
+    Function converts pickup_datetime to a float indicating how many 
+    minutes have passed since Midnight.
+    """
+    # Extract the pickup datetime
+    assert type(pickup_datetime) == str
+
+    # Convert it to minutes that have elapsed in the day
+    dateInfo, timeInfo = pickup_datetime.split(' ')
+    num_hours_string, num_minutes_string, num_seconds_string = timeInfo.split(':')
+    time_of_day_in_minutes = (int(num_hours_string) * 60) + int(num_minutes_string)
+
+    return time_of_day_in_minutes
+    
 def metrics(model,x,y):
     """
     compute ols and rmse

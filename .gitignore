@@ -9,6 +9,9 @@ __pycache__/
 #logs are intentionally disabled
 #*.log
 
+#movie reviews
+*.txt
+
 # What is this thing????
 .DS_Store
 

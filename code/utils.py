@@ -81,7 +81,6 @@ def load_csv_lazy(fname,str_fields,float_fields,exclude_first=True,row_filter=if
     :param exclude_first:
     :return:
     """
-
     error_count = 0
     excluded_count = 0
     for count, line in enumerate(file(fname)):

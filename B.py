@@ -30,7 +30,9 @@ def main():
     clf.fit(df_train[features[0:4]], df_train[features[-1]])
     preds = clf.predict(df_test[features[0:4]])
 
-    # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
+    print "done with preds"
+
+    # # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     print "Calculating statistics"
     rmse, corr, mae = calcStats(numpy.array(preds), numpy.array(df_test[features[-1]]))
     print "-->Root Mean Squared Error: {}".format(rmse)

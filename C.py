@@ -51,8 +51,8 @@ def main():
     ## Use sklearn to run nearest neighbors
     k = 1 
     clf = KNeighborsClassifier(n_neighbors=k)                   # default distance metric: euclidean
-    clf.fit(df_train[features[0:5]], df_train[features[-1]])
-    preds = clf.predict(df_test[features[0:5]])
+    clf.fit(df_train[features[0:6]], df_train[features[-1]])
+    preds = clf.predict(df_test[features[0:6]])
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     print "Calculating statistics"

@@ -1,7 +1,7 @@
-
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 import numpy
+import pandas as pd
 from config import TRAIN_DATA, TRIP_DATA_2, FILE_FORMAT_REVERSE
 from code.utils import load_csv_lazy
 
@@ -53,13 +53,18 @@ def main():
     test_data = load_csv_lazy( TRIP_DATA_2, str_fields=[], 
         float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
 
+    # load train data
+    train_data_features = pd.read_csv(TRAIN_DATA)
+    train_data_trip_times = train_data_features[features[-1]]       # series of training trip times
+    train_data_features = train_data_features[features[0:4]]
+    tupleized_dataframe_list = []
+    for index, plat_train, plong_train, dlat_train, dlong_train in train_data_features.itertuples():
+        tupleized_dataframe_list.append([(plat_train, plong_train, dlat_train, dlong_train)])
+    train_data_features = pd.DataFrame(tupleized_dataframe_list, dtype=tuple)
+
+
     predictions, true_values = [], []                   # these will hold our results
     for index_test, values_test in enumerate(test_data):
-        if index_test % 100 == 0:
-            if index_test == 100000:
-                break                                   # only do the first 100 k trips
-            print "Index Test: {}".format(index_test)
-
         if index_test % 10 == 0:
             if index_test == 100000:
                 break                                   # only do the first 100 k trips
@@ -69,30 +74,39 @@ def main():
         # extract data
         plat_test, plong_test, dlat_test, dlong_test, trip_time_test = values_test
 
-        
-        # load train dating
-        train_data = load_csv_lazy( TRAIN_DATA, str_fields=[], 
-            float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
+        # Calculate euclidean distances and store in a new dataframe
+        distances_from_test_values = train_data_features.applymap(
+            lambda x: euclideanDistance(x, (plat_test, plong_test, dlat_test, dlong_test)))
+        # Find the id of the min value in that dataframe
+        idmin = distances_from_test_values.idxmin()[0]
+        predicted_value = train_data_trip_times[idmin]
 
-        best_distance = float('inf')                    # keeps track of distance
-        best_prediction = None                          # tracks best prediction
-        for index_train, values_train in enumerate(train_data):
-
-            # Extract the data
-            plat_train, plong_train, dlat_train, dlong_train, trip_time_train = values_train
-
-            # Calculate the new distance
-            new_distance = euclideanDistance((plat_test, plong_test, dlat_test, dlong_test), 
-                                               (plat_train, plong_train, dlat_train, dlong_train))
-
-            # Update the best prediction and distance if necessary
-            if new_distance < best_distance:
-                best_distance = new_distance
-                best_prediction = trip_time_train
-
-        assert best_prediction                          # Should never be None
-        predictions.append(best_prediction)
+        predictions.append(predicted_value)
         true_values.append(trip_time_test)
+
+
+        # train_data = load_csv_lazy( TRAIN_DATA, str_fields=[], 
+        #     # float_fields=[int(FILE_FORMAT_REVERSE[feature]) for feature in features] )
+
+        # best_distance = float('inf')                    # keeps track of distance
+        # best_prediction = None                          # tracks best prediction
+        # for index_train, values_train in enumerate(train_data):
+
+        #     # Extract the data
+        #     plat_train, plong_train, dlat_train, dlong_train, trip_time_train = values_train
+
+        #     # Calculate the new distance
+        #     new_distance = euclideanDistance((plat_test, plong_test, dlat_test, dlong_test), 
+        #                                        (plat_train, plong_train, dlat_train, dlong_train))
+
+        #     # Update the best prediction and distance if necessary
+        #     if new_distance < best_distance:
+        #         best_distance = new_distance
+        #         best_prediction = trip_time_train
+
+        # assert best_prediction                          # Should never be None
+        # predictions.append(best_prediction)
+        # true_values.append(trip_time_test)
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     rmse, corr, mae = calcStats(numpy.array(predictions), numpy.array(true_values))

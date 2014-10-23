@@ -34,4 +34,18 @@ def get_distance(lat1, long1, lat2, long2):
     # MODIFIED TO return distance in miles
     return arc*3960.0
 
+def euclideanDistance(vector1, vector2):
+    """
+    TupleOfFloats TupleOfFloats -> float
+
+    Given two length-n vectors, returns the euclidean distance between them
+    """
+    assert len(vector1) == len(vector2)                 # defense yo
+    import math
+
+    distance = 0
+    for x in range(len(vector1)):
+        distance += pow((vector1[x] - vector2[x]), 2)
+    return math.sqrt(distance)
+
 

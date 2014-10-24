@@ -36,7 +36,11 @@ FILE_FORMAT ={
 }
 
 
-FILE_FORMAT_REVERSE = {value:key for key, value in FILE_FORMAT.iteritems()}
+# FILE_FORMAT_REVERSE = {value:key for key, value in FILE_FORMAT.iteritems()}
 
 F_FIELDS  = [8,9,10,11,12,13] # Float fields
 S_FIELDS = [5,] # String fields
+
+## Where results go
+RESULTS1D = ROOT + "/output/results1D.txt"
+RESULTS1E = ROOT + "/output/results1E.txt"

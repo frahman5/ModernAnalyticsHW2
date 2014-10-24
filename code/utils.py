@@ -3,31 +3,52 @@ from sklearn import linear_model
 from distance import get_distance
 # logging.basicConfig(filename='logs/utils.log',level=logging.DEBUG,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-def calcStats(y, yhat):
+def calcAndLogStats(y, yhat, output):
     """
-    numpy.array numpy.array -> (float, float, float)
+    numpy.array numpy.array string -> (float, float, float)
 
-    Given two length n lists, returns values for the following statistics:
+    Given two length n lists and an output file, logs the values for the 
+    following statistics to file:
         Root Mean Squared Error (RMSE)
         Correlation Coefficient
         Mean Absolute Error
     """
     print "calculating deltas"
     deltas = y - yhat
+
     print "calculating length of input"
     dimension = len(y)
 
     print "calculating ols error"
     ols_error = sum(numpy.square((deltas)))
+
     print "calculating rmse"
     rmse = (ols_error/dimension)**0.5
+
     print "calculating correlation coefficient"
     corr = numpy.corrcoef(y,yhat)
+
     print "Calculating mean absolute error"
     mean_absolute_error = (sum(numpy.absolute((deltas))))/dimension
 
-    return rmse, corr, mean_absolute_error
+    logStatsToFile({'Root Mean Squared Error': rmse, 
+                    'Correlation Coefficient Matrix': corr, 
+                    'Mean Absolute Error': mean_absolute_error})
 
+def logStatsToFile(statsDict, output):
+    """
+    dictionary string -> None
+
+    Outputs the stats in statsDict to file. statsDict has key, value pairs:
+        statName, statValue
+    e.g: "Root Mean Squared Error, 0.45"
+    """
+    with open(output, "a+") as outputFile:
+        outputFile.write('\n')
+        for key, value in statsDict.iteritems():
+            outputFile.write("-->{}: {}\n".format(key, statsDict[key]))
+
+    print "Logged Stats to: {}".format(output)
 def transformPickupDatetime(pickup_datetime):
     """
     string -> float
@@ -150,3 +171,9 @@ def load_csv_lazy(fname,str_fields,float_fields,exclude_first=True,row_filter=if
     logging.debug("count : "+str(count))
     logging.debug("error_count : "+str(error_count))
     logging.debug("excluded_count : "+str(excluded_count))
+
+if __name__ == '__main__':
+    # Short test for logStatsToFile(statsDict, output)
+    RESULTSTEST = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2" +\
+                  "/output/resultsTEST.txt"
+    logStatsToFile({'test value': 89, 'test worked!': True}, RESULTSTEST)

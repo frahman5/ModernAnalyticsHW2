@@ -34,6 +34,8 @@ def main():
     df_test_features_norm = (df_test_features - df_test_features.mean())/df_test_features.std()
     df_train_features_norm = (df_train_features - df_train_features.mean())/df_train_features.std()
 
+    print "finished normzalizing data sets"
+
     ## Use sklearn to run nearest neighbors
     k = 1 
     clf = KNeighborsClassifier(n_neighbors=k)                   # default distance metric: euclidean
@@ -46,3 +48,8 @@ def main():
     print "-->Root Mean Squared Error: {}".format(rmse)
     print "-->Correlation Coefficient: {}".format(corr)
     print "-->Mean Absolute Error: {}".format(mae)
+
+
+
+if __name__ == '__main__':
+    main()

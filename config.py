@@ -41,6 +41,8 @@ FILE_FORMAT ={
 F_FIELDS  = [8,9,10,11,12,13] # Float fields
 S_FIELDS = [5,] # String fields
 
-## Where results go
+## Where results go`
+RESULTS1B = ROOT + "/output/results1B.txt"
+RESULTS1C = ROOT + "/output/results1C.txt"
 RESULTS1D = ROOT + "/output/results1D.txt"
 RESULTS1E = ROOT + "/output/results1E.txt"

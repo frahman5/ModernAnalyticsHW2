@@ -2,11 +2,11 @@ __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 import numpy
 import pandas as pd
-from config import TRAIN_DATA, TRIP_DATA_1, FILE_FORMAT_REVERSE
+from config import TRAIN_DATA, TRIP_DATA_1, RESULTS1C
 from code.utils import calcStats, transformPickupDatetime
 from sklearn.neighbors import KNeighborsClassifier
 
-def main():
+def main(output=RESULTS1C):
     """
     Using 1 nearest neighbor, predicts NYC Taxi trip times based on feature 
     vectors (pickup latitude, pickup longitude, dropoff latitude, dropoff latitude). 
@@ -19,8 +19,9 @@ def main():
 
     ## Extract necessary data into pandas dataframes
         # Read them in
+    numrows = 1000000
     df_train_read = pd.read_csv(TRAIN_DATA)
-    df_test_read = pd.read_csv(TRIP_DATA_1, nrows = 1000000)    # first 100k rows, for speed
+    df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 100k rows, for speed
         # Extract desired features and drop null values
     df_test = df_test_read[features].dropna()
     df_train = df_train_read[features].dropna() 
@@ -36,10 +37,13 @@ def main():
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     print "Calculating statistics"
-    rmse, corr, mae = calcStats(numpy.array(preds), numpy.array(df_test[features[-1]]))
-    print "-->Root Mean Squared Error: {}".format(rmse)
-    print "-->Correlation Coefficient: {}".format(corr)
-    print "-->Mean Absolute Error: {}".format(mae)
+    with open(output, "a+") as outputFile:
+        outputFile.write("Ran knn with k={}".format(k) + \
+            " Trained on {}. Tested on first".format(TRAIN_DATA) + \
+            " {} rows of {}. Stats:".format(numrows, TRIP_DATA_1))
+    calcAndLogStats( numpy.array(preds), 
+                     numpy.array(df_test[features[-1]]), 
+                     output=output)
     
 if __name__ == '__main__':
 

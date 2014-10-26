@@ -1,19 +1,11 @@
 # __author__ = 'Faiyam Rahman, Rachel Mayer'
-
 import pandas as pd
 import numpy as np
 from config import TRAIN_DATA, DEBUG_DATA, FILE_FORMAT
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-# def make3DHist(dlongbinsize, dlatbinsize, data, pc_count):
-#     """
-#     float float np.array int(1|3) -> ???
 
-#     Given the parameters for binsize and a matrix of data
-#     and the pc count for that data 
-#     produces (saves to file) a 3DHistogram
-#     """
 
 # def main():
 #     """

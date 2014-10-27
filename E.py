@@ -15,6 +15,7 @@ def medianVote(start_array):
 
     Essentially, implements a uniform weighting over the medians in the array
     """
+
     import numpy as np
 
     # Round each element in the start_array to deal with slightly innacurate
@@ -33,6 +34,17 @@ def medianVote(start_array):
     maybe_end_array = [1 if elem == median else 0 for elem in rounded_start_array]
     num_medians = sum(maybe_end_array)
     print "Number of medians in start_array: {}".format(num_medians)
+
+    # Calculate median
+    import numpy as np
+    median = np.median(start_array)
+    assert median in start_array                        # safety yo
+    import pdb
+    pdb.set_trace()
+
+    # Construct weight array
+    maybe_end_array = [1 if elem == median else 0 for elem in start_array]
+    num_medians = sum(maybe_end_array)
     end_array = maybe_end_array                         # if num_medians == 1
     if num_medians != 1:
         uniform_weight = float(1)/num_medians

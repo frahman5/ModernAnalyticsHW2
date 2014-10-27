@@ -9,7 +9,6 @@ __pycache__/
 #logs are intentionally disabled
 #*.log
 
-
 # The food reviews file is too big man
 finefoods.txt
 

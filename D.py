@@ -24,7 +24,7 @@ def main(k=1, output=RESULTS1D, weights='uniform'):
 
     ## Extract necessary data into pandas dataframes
         # Read them in
-    numrows = 1000000
+    numrows = 100000 # ten thousand 
     df_train_read = pd.read_csv(TRAIN_DATA)
     df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 100k rows, for speed
         # Extract desired features and drop null values

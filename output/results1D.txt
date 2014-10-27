@@ -35,4 +35,8 @@ normalzed head:
 2      -0.530288         0.831314  
 3      -0.648456         1.624064  
 4      -0.234867         1.548688  
-finished normzalizing data sets
+finished normzalizing data setsRan knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 100000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74602589]
+ [ 0.74602589  1.        ]]
+-->Root Mean Squared Error: 404.200445324
+-->Mean Absolute Error: 267

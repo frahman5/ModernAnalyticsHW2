@@ -43,6 +43,7 @@ def main(output=RESULTS1E):
 
     # Run knn hella times!
     for k in range(5, 21):
+        print "Running Knn with K={}\n".format(k)
         D.main(k=k, output=output, weights=medianVote)
 
 if __name__ == '__main__':

@@ -48,14 +48,6 @@ def main(k=1, output=RESULTS1D, weights='uniform'):
     preds = clf.predict(df_test_features_norm)
 
     # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
-    print "Calculating statistics"
-    rmse, corr, mae = calcStats(numpy.array(preds), numpy.array(df_test[features[-1]]))
-    print "-->Root Mean Squared Error: {}".format(rmse)
-    print "-->Correlation Coefficient: {}".format(corr)
-    print "-->Mean Absolute Error: {}".format(mae)
-
-
-
     with open(output, "a+") as outputFile:
         outputFile.write("Ran knn with k={}, using {}".format(k, weights) + \
             " weighting (voting). Trained on {}. Tested on first".format(TRAIN_DATA) + \

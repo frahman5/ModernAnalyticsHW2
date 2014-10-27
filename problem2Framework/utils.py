@@ -1,6 +1,20 @@
 # decision tree stuff
-def entropy():
-    raise 'not implemented'
+def entropy(frequencies):
+    """
+    tupleOfFrequencies -> float
+        frequencies: A probability distribution (i.e sum(frequencies) = 1)
+
+    Calculates the entropy of the given tupleOfFrequencies. 
+    """
+    import math
+
+    entropy = 0
+    for frequency in frequencies:
+        if frequency == 0:
+            continue
+        entropy -= frequency * math.log(frequency, 10)
+    return entropy
+
 
 def information_gain():
     raise 'not implemented'
@@ -29,3 +43,8 @@ def get_unigram(review):
 
 def get_unigram_list(review):
     return get_unigram(review).keys()
+
+if __name__ == '__main__':
+    print entropy([1.0/2, 1.0/2])
+    # x = (5.0/14) * entropy((2.0/5, 3.0/5)) + (4.0/14) * entropy((1, 0)) + (5.0/14) * entropy((3.0/5, 2.0/5))
+    # print x

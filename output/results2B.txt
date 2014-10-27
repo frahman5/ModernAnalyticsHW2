@@ -1,10 +1,10 @@
 
 30 Most Frequent Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
 30 Most Frequent Negative Unigrams
 [('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
 30 Most Frequent Positive Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
 
 30 Most Frequent Unigrams
 [('a', 2), ('all', 1), ('and', 3), ('appreciates', 1), ('be', 1), ('better', 2), ('canned', 1), ('finicky', 1), ('food', 2), ('good', 2), ('have', 2), ('i', 1), ('is', 1), ('it', 1), ('labrador', 1), ('like', 1), ('looks', 1), ('meat', 1), ('more', 1), ('most', 1), ('processed', 1), ('product', 2), ('quality', 2), ('several', 1), ('smells', 1), ('stew', 1), ('than', 2), ('them', 1), ('to', 1), ('vitality', 1)]
@@ -14,8 +14,43 @@
 [('a', 2), ('all', 1), ('and', 3), ('appreciates', 1), ('be', 1), ('better', 2), ('canned', 1), ('finicky', 1), ('food', 2), ('good', 2), ('have', 2), ('i', 1), ('is', 1), ('it', 1), ('labrador', 1), ('like', 1), ('looks', 1), ('meat', 1), ('more', 1), ('most', 1), ('processed', 1), ('product', 2), ('quality', 2), ('several', 1), ('smells', 1), ('stew', 1), ('than', 2), ('them', 1), ('to', 1), ('vitality', 1)]
 
 30 Most Frequent Unigrams
-[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
 30 Most Frequent Negative Unigrams
 [('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
 30 Most Frequent Positive Unigrams
-[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+
+30 Most Frequent Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+30 Most Frequent Negative Unigrams
+[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+30 Most Frequent Positive Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+
+30 Most Frequent Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+30 Most Frequent Negative Unigrams
+[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+30 Most Frequent Positive Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+
+30 Most Frequent Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+30 Most Frequent Negative Unigrams
+[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+30 Most Frequent Positive Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+
+30 Most Frequent Unigrams
+[('advertised', 1), ('looks', 1), ('sure', 1), ('an', 1), ('it', 1), ('arrived', 1), ('is', 1), ('unsalted', 1), ('labrador', 1), ('all', 1), ('represent', 1), ('jumbo', 2), ('this', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('not', 2), ('if', 2), ('food', 2), ('good', 2), ('peanuts', 2), ('to', 2), ('better', 2), ('quality', 2), ('have', 2), ('as', 3), ('and', 3), ('product', 4), ('the', 5)]
+30 Most Frequent Negative Unigrams
+[('', 0), ('', 0), ('', 0), ('', 0), ('or', 1), ('error', 1), ('labeled', 1), ('this', 1), ('sized', 1), ('were', 1), ('intended', 1), ('vendor', 1), ('was', 1), ('to', 1), ('actually', 1), ('salted', 1), ('small', 1), ('advertised', 1), ('sure', 1), ('an', 1), ('arrived', 1), ('unsalted', 1), ('represent', 1), ('jumbo', 2), ('not', 2), ('if', 2), ('product', 2), ('peanuts', 2), ('the', 3), ('as', 3)]
+30 Most Frequent Positive Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
+
+30 Most Frequent Unigrams
+[('advertised', 1), ('looks', 1), ('sure', 1), ('an', 1), ('it', 1), ('arrived', 1), ('is', 1), ('unsalted', 1), ('labrador', 1), ('all', 1), ('represent', 1), ('jumbo', 2), ('this', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('not', 2), ('if', 2), ('food', 2), ('good', 2), ('peanuts', 2), ('to', 2), ('better', 2), ('quality', 2), ('have', 2), ('as', 3), ('and', 3), ('product', 4), ('the', 5)]
+30 Most Frequent Negative Unigrams
+[('', 0), ('', 0), ('', 0), ('', 0), ('or', 1), ('error', 1), ('labeled', 1), ('this', 1), ('sized', 1), ('were', 1), ('intended', 1), ('vendor', 1), ('was', 1), ('to', 1), ('actually', 1), ('salted', 1), ('small', 1), ('advertised', 1), ('sure', 1), ('an', 1), ('arrived', 1), ('unsalted', 1), ('represent', 1), ('jumbo', 2), ('not', 2), ('if', 2), ('product', 2), ('peanuts', 2), ('the', 3), ('as', 3)]
+30 Most Frequent Positive Unigrams
+[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]

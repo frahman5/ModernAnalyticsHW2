@@ -18,7 +18,7 @@ def updateUnigramList(unigramList, unigram, count):
     """
     if count > unigramList[0][1]:
         unigramList[0] = (unigram, count)
-    unigramList.sort(reverse=True)
+    unigramList.sort(key=lambda t: t[1])            # sort based on count
 
 def main():
     from problem2Framework import scan
@@ -26,6 +26,7 @@ def main():
     # Extract list of unigrams from finefoods.txt
     binary_label = True
     data = scan.scan(FINEFOODS, binary_label= binary_label) #[(review, score)...(review, score)]
+    print "finished scanning in data"
     
     masterDict = {} #{'word': [negative_review_count, positive_review_count], ...}
     for review, score in data:
@@ -34,14 +35,13 @@ def main():
             if word not in masterDict.keys():
                 masterDict[word] = [0, 0]
             masterDict[word][score] += unigram[word]
+    print "finished creating master dictionary"
 
     # Extract relevant data
     mostFrequentUnigrams = [('', 0) for i in range(30)] 
     mostFrequentNegativeUnigrams = [('', 0) for i in range(30)]
     mostFrequentPositiveUnigrams = [('', 0) for i in range(30)]
     for unigram, reviewCount in masterDict.iteritems():
-        print "unigram: {}".format(unigram)
-        print "count: {}".format(reviewCount)
         badReviewCount, positiveReviewCount = reviewCount
         totalCount = sum(reviewCount)
 

@@ -35,12 +35,12 @@ def medianVote(start_array):
     num_medians = sum(maybe_end_array)
     print "Number of medians in start_array: {}".format(num_medians)
 
-    # Calculate median
-    import numpy as np
-    median = np.median(start_array)
-    assert median in start_array                        # safety yo
-    import pdb
-    pdb.set_trace()
+    # # Calculate median
+    # import numpy as np
+    # median = np.median(start_array)
+    # assert median in start_array                        # safety yo
+    # import pdb
+    # pdb.set_trace()
 
     # Construct weight array
     maybe_end_array = [1 if elem == median else 0 for elem in start_array]

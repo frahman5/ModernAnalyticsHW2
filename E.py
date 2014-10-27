@@ -2,37 +2,35 @@ __author__ = 'Faiyam Rahman, Rachel mayer'
 
 from config import RESULTS1E
 
-def medianVote(start_array):
+def medianVote(distance_array):
     """
-    np.ArrayOfFloats -> ArrayOfFloats
+    np.ArrayOfFloats -> np.ArrayOfFloats
 
-    Given a start_array of k distances, returns a length k end_array where 
-        end_array[i] = { 0 if start_array[i] != median(start_array)
-                         1/w if start_array[i] = median(start_array)
+    Given a distance_array of k distances, returns a length k end_array where 
+        end_array[i] = { 0 if distance_array[i] != median(distance_array)
+                         1/w if distance_array[i] = median(distance_array)
                         }
-            where w < k is the number of entries in start_array equal to
-            the median of start_array
+            where w < k is the number of entries in distance_array equal to
+            the median of distance_array
 
     Essentially, implements a uniform weighting over the medians in the array
     """
     import numpy as np
 
     # Calculate median
-    start_array = start_array.round(decimals=4)         # round to handle float comparison issues
-    median = np.median(start_array)
-    assert median in start_array                        # safety yo
+    distance_array = distance_array.round(decimals=4)         # round to handle float comparison issues
+    median = np.median(distance_array)
+    assert median in distance_array                        # safety yo
 
     # Construct weight array
-    maybe_end_array = [1 if elem == median else 0 for elem in start_array]
-    num_medians = sum(maybe_end_array)
-    print "Number of medians in start_array: {}".format(num_medians)
-
-    end_array = maybe_end_array                         # if num_medians == 1
+    np.place(distance_array, distance_array!=median, [0])
+    np.place(distance_array, distance_array==median, [1])
+    num_medians = distance_array.sum()
+    print "Number of medians in distance_array: {}".format(num_medians)
     if num_medians != 1:
-        uniform_weight = float(1)/num_medians
-        end_array = [uniform_weight if elem == 1 else 0 for elem in maybe_end_array]
+        np.place(distance_array, distance_array==1, [float(1)/num_medians])
 
-    return tuple(end_array)
+    return distance_array
 
 def main(output=RESULTS1E):
     """
@@ -53,11 +51,11 @@ def main(output=RESULTS1E):
 if __name__ == '__main__':
     import numpy as np
     ## Short unit test for medianVote
-    start_array_1 = np.array([1, 2, 3, 4, 5, 3])
-    assert medianVote(start_array_1) == (0, 0, 0.5, 0, 0, 0.5)
+    start_array_1 = np.array([1.223452345, 2.23452345, 3.12345, 4.23452345, 5.23452345, 3.12345])
+    assert np.array_equal(medianVote(start_array_1), np.array((0, 0, 0.5, 0, 0, 0.5)))
 
     start_array_2 = np.array([1, 3, 2, 4, 5])
-    assert (medianVote(start_array_2) == (0, 1, 0, 0, 0))
+    assert np.array_equal(medianVote(start_array_2), np.array((0, 1, 0, 0, 0)))
     print "all tests passed yo!"
     
     main()

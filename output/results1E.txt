@@ -4,3 +4,5 @@
 *** RUNNING kNN with k ranging from 5 to 21 ***
 *** RUNNING kNN with k ranging from 5 to 21 ***
 *** RUNNING kNN with k ranging from 5 to 21 ***
+*** RUNNING kNN with k ranging from 5 to 21 ***
+*** RUNNING kNN with k ranging from 5 to 21 ***

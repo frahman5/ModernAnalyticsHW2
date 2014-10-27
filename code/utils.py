@@ -33,7 +33,8 @@ def calcAndLogStats(y, yhat, output):
 
     logStatsToFile({'Root Mean Squared Error': rmse, 
                     'Correlation Coefficient Matrix': corr, 
-                    'Mean Absolute Error': mean_absolute_error})
+                    'Mean Absolute Error': mean_absolute_error}, 
+                    output)
 
 def logStatsToFile(statsDict, output):
     """

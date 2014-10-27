@@ -31,8 +31,6 @@ def main(output=RESULTS1B):
     clf.fit(df_train[features[0:4]], df_train[features[-1]])
     preds = clf.predict(df_test[features[0:4]])
 
-    print "done with preds"
-
     # # Calculate statistics (Root Mean Squared Error, Correlation Coefficient, Mean Absolute Error)
     print "Calculating statistics"
     with open(output, "a+") as outputFile:

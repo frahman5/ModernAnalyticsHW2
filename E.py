@@ -4,7 +4,7 @@ from config import RESULTS1E
 
 def medianVote(start_array):
     """
-    ArrayOfFloats -> ArrayOfFloats
+    np.ArrayOfFloats -> ArrayOfFloats
 
     Given a start_array of k distances, returns a length k end_array where 
         end_array[i] = { 0 if start_array[i] != median(start_array)

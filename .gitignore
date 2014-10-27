@@ -12,6 +12,9 @@ __pycache__/
 # The food reviews file is too big man
 finefoods.txt
 
+#nltk_data
+/data/nltk_data
+
 # What is this thing????
 .DS_Store
 

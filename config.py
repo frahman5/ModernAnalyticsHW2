@@ -13,10 +13,14 @@ All constants should go here.
 ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
 # ROOT = "/home/faiyamrahman/ModernAnalyticsHW2"
 
+## Problem 1 data locations
 EXAMPLE_DATA = ROOT + "/data/example_data.csv"
 TRAIN_DATA = ROOT + "/data/train_data.csv"
 TRIP_DATA_2 = ROOT + "/data/trip_data_2.csv"
 TRIP_DATA_1 = ROOT + "/data/trip_data_1.csv"
+
+## Problem 2 data locations
+FINEFOODS = ROOT + "/data/finefoods.txt"
 
 FILE_FORMAT ={
     '0':'medallion',

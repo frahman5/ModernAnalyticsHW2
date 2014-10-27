@@ -1,0 +1,26 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+#logs are intentionally disabled
+#*.log
+
+
+# The food reviews file is too big man
+finefoods.txt
+
+#nltk_data
+/data/nltk_data
+
+# What is this thing????
+.DS_Store
+
+# csvs are large man
+*.csv
+
+#igonore movie files
+*.gz

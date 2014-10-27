@@ -3,7 +3,7 @@ __author__ = 'Faiyam Rahman, Rachel Mayer'
 import numpy
 import pandas as pd
 from config import TRAIN_DATA, TRIP_DATA_1, RESULTS1C
-from code.utils import calcStats, transformPickupDatetime
+from code.utils import calcAndLogStats, transformPickupDatetime
 from sklearn.neighbors import KNeighborsClassifier
 
 def main(output=RESULTS1C):

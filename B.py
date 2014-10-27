@@ -4,7 +4,7 @@ import numpy
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 from config import TRAIN_DATA, TRIP_DATA_1, RESULTS1B
-from code.utils import calcStats
+from code.utils import calcAndLogStats
 
 def main(output=RESULTS1B):
     """

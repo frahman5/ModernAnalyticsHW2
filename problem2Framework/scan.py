@@ -10,7 +10,6 @@ STOPWORDS = stopwords.words('english')
 
 # read in a file
 def scan(filename, exclude_stopwords = False, binary_label = False):
-<<<<<<< HEAD
     """
     string bool bool -> ListOfTuples
         filename: pathname of input file
@@ -19,9 +18,6 @@ def scan(filename, exclude_stopwords = False, binary_label = False):
 
     OutputTuples are of the form (string, float|int) interpreted as (review, review_score)
     """
-
-=======
->>>>>>> 5694e8c56611e34ea464bc051153154560b974b6
     data = []
     with open(filename, 'r') as f:
         elements = []

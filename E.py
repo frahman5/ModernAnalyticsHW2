@@ -15,9 +15,9 @@ def medianVote(start_array):
 
     Essentially, implements a uniform weighting over the medians in the array
     """
-
     import numpy as np
 
+<<<<<<< HEAD
     # Round each element in the start_array to deal with slightly innacurate
     # float comparisons w.r.t to the median
     rounded_start_array = [round(elem, 4) for elem in start_array]
@@ -41,10 +41,18 @@ def medianVote(start_array):
     # assert median in start_array                        # safety yo
     # import pdb
     # pdb.set_trace()
+=======
+    # Calculate median
+    start_array = start_array.round(decimals=4)         # round to handle float comparison issues
+    median = np.median(start_array)
+    assert median in start_array                        # safety yo
+>>>>>>> 183af2fa9de6070b3dbbacf3978c6a7447bc8ae6
 
     # Construct weight array
     maybe_end_array = [1 if elem == median else 0 for elem in start_array]
     num_medians = sum(maybe_end_array)
+    print "Number of medians in start_array: {}".format(num_medians)
+
     end_array = maybe_end_array                         # if num_medians == 1
     if num_medians != 1:
         uniform_weight = float(1)/num_medians
@@ -69,11 +77,12 @@ def main(output=RESULTS1E):
         D.main(k=k, output=output, weights=medianVote)
 
 if __name__ == '__main__':
+    import numpy as np
     ## Short unit test for medianVote
-    start_array_1 = [1, 2, 3, 4, 5, 3]                    # median  = 3
+    start_array_1 = np.array([1, 2, 3, 4, 5, 3])
     assert medianVote(start_array_1) == (0, 0, 0.5, 0, 0, 0.5)
 
-    start_array_2 = [1, 3, 2, 4, 5]
+    start_array_2 = np.array([1, 3, 2, 4, 5])
     assert (medianVote(start_array_2) == (0, 1, 0, 0, 0))
     print "all tests passed yo!"
     

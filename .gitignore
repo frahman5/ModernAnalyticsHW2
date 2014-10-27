@@ -21,5 +21,5 @@ finefoods.txt
 # csvs are large man
 *.csv
 
-#igonore movie files
+#ignore movie files
 *.gz

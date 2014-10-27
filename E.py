@@ -19,6 +19,8 @@ def medianVote(start_array):
     import numpy as np
     median = np.median(start_array)
     assert median in start_array                        # safety yo
+    import pdb
+    pdb.set_trace()
 
     # Construct weight array
     maybe_end_array = [1 if elem == median else 0 for elem in start_array]
@@ -39,7 +41,7 @@ def main(output=RESULTS1E):
 
     # print a header on the output file
     with open(output, "a+") as outputFile:
-        output.write("*** RUNNING kNN with k ranging from 5 to 21 ***\n")
+        outputFile.write("*** RUNNING kNN with k ranging from 5 to 21 ***\n")
 
     # Run knn hella times!
     for k in range(5, 21):

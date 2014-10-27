@@ -6,7 +6,7 @@ import utils
 def main():
     binary_label = True
 
-    data = scan.scan('foods.txt', binary_label)
+    data = scan.scan('foods.txt', binary_label=binary_label)
     length = len(data)
 
     train_data = data[:int(length*.8)]

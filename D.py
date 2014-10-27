@@ -37,13 +37,8 @@ def main(k=1, output=RESULTS1D, weights='uniform'):
     df_test_features = df_test[features[0:6]]
     df_train_features = df_train[features[0:6]]
         # Normalize
-    df_test_features_norm = (df_test_features - df_test_features.mean())/df_test_features.std()
     df_train_features_norm = (df_train_features - df_train_features.mean())/df_train_features.std()
-    print "unnormalzed head: \n"
-    print df_test_features.head()
-    print "normalzed head: \n"
-    print df_test_features_norm.head()
-
+    df_test_features_norm = (df_test_features - df_train_features.mean())/df_train_features.std()
     print "finished normzalizing data sets"
 
     ## Use sklearn to run nearest neighbors

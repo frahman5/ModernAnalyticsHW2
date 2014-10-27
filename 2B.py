@@ -1,7 +1,10 @@
 __author__ = 'Faiyam Rahman, Rachel Mayer'
 
 from config import FINEFOODS
+<<<<<<< HEAD
 from problem2Framework.utils import get_unigram
+=======
+>>>>>>> 5694e8c56611e34ea464bc051153154560b974b6
 
 def main():
     from problem2Framework import scan
@@ -38,8 +41,6 @@ def main():
         mostFrequentUnigrams.sort()
         mostFrequenctNegativeUnigrams.sort()
         mostFrequentPositiveUnigrams.sort()
-
-
 
 if __name__ == '__main__':
     main()

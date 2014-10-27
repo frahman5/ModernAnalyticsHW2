@@ -1,0 +1,38 @@
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.60858726]
+ [ 0.60858726  1.        ]]
+-->Root Mean Squared Error: 483.658970763
+-->Mean Absolute Error: 288
+
+
+unnormalzed head: 
+
+   pickup_latitude  pickup_longitude  dropoff_latitude  dropoff_longitude  \
+0        40.757977        -73.978165         40.751171         -73.989838   
+1        40.731781        -74.006683         40.750660         -73.994499   
+2        40.737770        -74.004707         40.726002         -74.009834   
+3        40.759945        -73.974602         40.759388         -73.984734   
+4        40.748528        -73.976250         40.747868         -74.002586   
+
+   trip_distance  pickup_datetime  
+0            1.0              911  
+1            1.5               18  
+2            1.1             1129  
+3            0.7             1434  
+4            2.1             1405  
+normalzed head: 
+
+   pickup_latitude  pickup_longitude  dropoff_latitude  dropoff_longitude  \
+0         0.073164         -0.125278          0.066214          -0.137805   
+1         0.070562         -0.127972          0.066171          -0.138251   
+2         0.071157         -0.127785          0.064090          -0.139717   
+3         0.073359         -0.124941          0.066908          -0.137317   
+4         0.072225         -0.125097          0.065936          -0.139024   
+
+   trip_distance  pickup_datetime  
+0      -0.559830         0.264694  
+1      -0.412119        -2.056372  
+2      -0.530288         0.831314  
+3      -0.648456         1.624064  
+4      -0.234867         1.548688  
+finished normzalizing data sets

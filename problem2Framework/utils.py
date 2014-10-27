@@ -6,6 +6,7 @@ def information_gain():
     raise 'not implemented'
 
 # natural language processing stuff
+<<<<<<< HEAD
 def freq(reviewAsListOfStrings):
     """
     ListOfStrings -> (Dictionary, int)

@@ -1,120 +1,120 @@
 # __author__ = 'Faiyam Rahman, Rachel Mayer'
 import pandas as pd
 import numpy as np
+import csv
 from config import TRAIN_DATA, FILE_FORMAT
 from distance import get_distance
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
 
-def make3DHist(dlongbinsize, dlatbinsize, data, pc_count):
-    """
-    float float pandas.DataFrame int -> None
-
-    Given the parameters for binsize, a 2xN matrix of dropoff
-    longitudes and latitudes, and the (constant) passenger count for all of 
-    those dropoff points, produces (saves to file) a labeled 3DHistogram
-    """
-    pass
-
-def calcBinSize(num_miles, axis):
-    """
-    float string(lat|long) -> float
-
-    Given the number of miles along an axis, returns how many units on that
-    axis the binsize should be
-    """
-    assert axis in ("lat", "long")
-
-    increment = 0.000001                # step size for axis unit
-    epsilon = 0.001                   # acceptable error
-    start_val = 1.0                     # arbitrary starting point for calculation
-    lat1, lat2, long1, long2 = (start_val, start_val, start_val, start_val)
-    while ((num_miles - get_distance(lat1, long1, lat2, long2)) > epsilon):
-        if axis == "lat":
-            lat2 += increment
-        else:
-            long2 += increment
-
-    return max(lat1, lat2, long1, long2) - start_val
-
 def main():
     """
-    Based on train_data.csv, produces
-    plots of the pdfs (approximated as histograms) of 
+    Based on 10,000 rows from TRAIN_DATA.csv, produces
+    plots of heat maps of the probabilities for using scaled 
+    GPS locations
         P(passenger count=1|dropoff longitude, dropoff latitude)
         P(passenger count=3|dropoff longitude, dropoff latitude)
     """
-    # Calculate bin sizes. We want dlongbinsize to be ~ 1/20 mile, and 
-    # dlatbinsize to be ~1/7 of a mile, as this corresponds roughly to a NYC block
-    dlongbinsize = calcBinSize(float(1)/20, "long")
-    dlatbinsize = calcBinSize(float(1)/7, "lat")
-    print "dlongbinsize, dlatbinsize: {}, {}".format(dlongbinsize, dlatbinsize)
 
-    # read relevant data into pandas dataframe
-    num_data_points = 10000                       # limit data size to increase speed
-    data = pd.read_csv(TRAIN_DATA, nrows = 10000)
-    data = data[['passenger_count', 'dropoff_longitude', 'dropoff_latitude']] 
-    for pc_count in (1, 3):
-        filteredData = data[data['passenger_count'] == pc_count]
-
-    filteredData = filteredData['dropoff_longitude'].dropna()
-
-    print filteredData
+    dic = {}
+    longs = []
+    lats = []
+    final_counts= []
+    tripcounts_1 = []
+    tripcounts_3 = []
+    total_tripcounts = []
+    prob_1 = []
+    prob_3 = []
+    colors1 = []
+    colors3 = []
     
-        #make3DHist(dlongbinsize, dlatbinsize, filteredData)
+    f = open('info.csv', 'rw')  ## saved cvs with excel manipulation of lat and longs
+    try:
+        reader = csv.reader(f)
+        for row in reader:
+            key = row[3] + "," + row[4]
+            longs.append(int(row[3]))
+            lats.append(int(row[4]))
+            if (not dic.has_key(key)):
+                dic[key] = []
+            dic[key].append(int(row[0]))                                   
+        for key in dic.keys():
+            countOne = 0
+            counntThree = 0
+            for el in dic[key]:
+                if el == 1:
+                    countOne +=1
+                elif el == 3:
+                    counntThree += 1
+            #print key + "," + str(len(dic[key])) + "," + str(countOne) + "," + str(counntThree)
+                final = [key, str(len(dic[key])), str(countOne), str(counntThree)]
+                final_counts.append(final)
+                tripcounts_1.append(countOne)
+                tripcounts_3.append(counntThree)
+                total_tripcounts.append((len(dic[key])))
+        ## generating probabilities
+        for n in range(len(total_tripcounts)):
+            prob_1.append(float(tripcounts_1[n])/float(total_tripcounts[n]))
+            prob_3.append(float(tripcounts_3[n])/float(total_tripcounts[n]))
 
-    # ##### good example
-    # fig = plt.figure()
-    # ax1 = fig.add_subplot(111, projection='3d')
+        ## generating list of colors for heat map
+        for c in prob_1:
+            if c >= 0.85:
+                colors1.append('#990000')
+            elif c >= 0.60 and c < 0.85:
+                colors1.append('#AD3333')
+            elif c >= 0.50 and c < 0.60:
+                colors1.append('#FF8330')
+            elif c >= 0.3 and c < 0.50:
+                colors1.append('#FFCC00')
+            else: 
+                colors1.append('#FFDB4D')
+        
+        for c in prob_3:
+            if c >= 0.85:
+                colors3.append('#990000')
+            elif c >= 0.60 and c < 0.85:
+                colors3.append('#AD3333')
+            elif c >= 0.50 and c < 0.60:
+                colors3.append('#FF8330')
+            elif c >= 0.3 and c < 0.50:
+                colors3.append('#FFCC00')
+            else: 
+                colors3.append('#FFDB4D')
+        
+        ##plots
+        plt.scatter(longs, lats, c = colors1)
+        plt.title('Heat Map for Prob P Count = 1')
+        plt.xlabel("longs")
+        plt.ylabel("lats")
+        plt.savefig("graph1.jpg")
+        plt.clf()
+        plt.cla()
 
-    # xpos = [1,2,3,4,5,6,7,8,9,10]
-    # ypos = [2,3,4,5,1,6,2,1,7,2]
-    # zpos = [0,0,0,0,0,0,0,0,0,0]
-    # dx = np.ones(10)
-    # dy = np.ones(10)
-    # dz = [1,2,3,4,5,6,7,8,9,10]
+        ##plots
+        plt.scatter(longs, lats, c = colors3)
+        plt.title('Heat Map for Prob P Count = 3')
+        plt.xlabel("longs")
+        plt.ylabel("lats")
+        plt.savefig("graph2.jpg")
+        plt.clf()
+        plt.cla()
+        
+        # prob_1 = []
+        # for i in final_counts:
+        #     p = 
+        # # tripcounts = open('tripcounts.csv', 'wb')
+        # writer = csv.writer(tripcounts, dialect = 'excel')
+        # for i in final_counts:
+        #     writer.writerow(i)
+    finally:
+        f.close()
 
-    # ax1.bar3d(xpos, ypos, zpos, dx, dy, dz, color='#00ceaa')
-    # ax1.bar3d()
 
-    # plt.show()
-    # ####### working example
-    # fig = plt.figure()
-    # ax1 = fig.add_subplot(111, projection='3d')
-    # xpos = filteredData['dropoff_latitude'].tolist()
-    # ypos = filteredData['dropoff_longitude'].tolist()
-    # zpos = np.zeros(len(dlat))
+ 
 
-    # dx = np.ones(10)
-    # dy = np.ones(10)
-    # dz = [1,2,3,4,5,6,7,8,9,10]
 
-    # ax1.bar3d(xpos, ypos, zpos, dx, dy, dz, color='#00ceaa')
-    # ax1.bar3d()
-
-    # plt.show()
-
-    # fig = plt.figure()
-    # ax = fig.add_subplot(111, projection='3d')
-    # x, y = np.random.rand(2, 100) * 4
-    # hist, xedges, yedges = np.histogram2d(x, y, bins=4)
-
-    # elements = (len(xedges) - 1) * (len(yedges) - 1)
-    # xpos, ypos = np.meshgrid(xedges[:-1]+0.25, yedges[:-1]+0.25)
-
-    # xpos = xpos.flatten()
-    # ypos = ypos.flatten()
-    # zpos = np.zeros(elements)
-    # print zpos
-    # dx = 0.5 * np.ones_like(zpos)
-    # dy = dx.copy()
-    # dz = hist.flatten()
-    # print dz
-
-    # ax.bar3d(xpos, ypos, zpos, dx, dy, dz, color='b', zsort='average')
-
-    # plt.show()
 
 ## Usage: python A.py
 if __name__ == '__main__':

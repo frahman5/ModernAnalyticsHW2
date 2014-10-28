@@ -40,3 +40,23 @@ finished normzalizing data setsRan knn with k=1, using uniform weighting (voting
  [ 0.74602589  1.        ]]
 -->Root Mean Squared Error: 404.200445324
 -->Mean Absolute Error: 267
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.72627719]
+ [ 0.72627719  1.        ]]
+-->Root Mean Squared Error: 385.871740349
+-->Mean Absolute Error: 260
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.72627719]
+ [ 0.72627719  1.        ]]
+-->Root Mean Squared Error: 385.871740349
+-->Mean Absolute Error: 260
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.72627719]
+ [ 0.72627719  1.        ]]
+-->Root Mean Squared Error: 385.871740349
+-->Mean Absolute Error: 260
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.72627719]
+ [ 0.72627719  1.        ]]
+-->Root Mean Squared Error: 385.871740349
+-->Mean Absolute Error: 260

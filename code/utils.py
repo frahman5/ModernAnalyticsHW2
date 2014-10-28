@@ -50,6 +50,7 @@ def logStatsToFile(statsDict, output):
             outputFile.write("-->{}: {}\n".format(key, statsDict[key]))
 
     print "Logged Stats to: {}".format(output)
+
 def transformPickupDatetime(pickup_datetime):
     """
     string -> float
@@ -59,6 +60,7 @@ def transformPickupDatetime(pickup_datetime):
 
     Function converts pickup_datetime to a float indicating how many 
     minutes have passed since Midnight.
+    
     """
     # Extract the pickup datetime
     assert type(pickup_datetime) == str

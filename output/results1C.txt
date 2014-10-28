@@ -3,3 +3,8 @@ Ran knn with k=1 Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_d
  [ 0.74509628  1.        ]]
 -->Root Mean Squared Error: 361.973755955
 -->Mean Absolute Error: 237
+Ran knn with k=1 Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.70936597]
+ [ 0.70936597  1.        ]]
+-->Root Mean Squared Error: 398.452004638
+-->Mean Absolute Error: 261

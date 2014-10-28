@@ -19,7 +19,7 @@ def main(output=RESULTS1C):
 
     ## Extract necessary data into pandas dataframes
         # Read them in
-    numrows = 1000000
+    numrows = 10000
     df_train_read = pd.read_csv(TRAIN_DATA)
     df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 100k rows, for speed
         # Extract desired features and drop null values
@@ -28,6 +28,7 @@ def main(output=RESULTS1C):
         # Transform pickup_datetime
     df_test['pickup_datetime'] = df_test['pickup_datetime'].apply(transformPickupDatetime)
     df_train['pickup_datetime'] = df_train['pickup_datetime'].apply(transformPickupDatetime)
+
 
     ## Use sklearn to run nearest neighbors
     k = 1 

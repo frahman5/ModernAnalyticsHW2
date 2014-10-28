@@ -1,0 +1,5 @@
+Ran knn with k=1 Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73559585]
+ [ 0.73559585  1.        ]]
+-->Root Mean Squared Error: 399.752423382
+-->Mean Absolute Error: 254

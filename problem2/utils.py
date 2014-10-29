@@ -77,28 +77,12 @@ def informationGain(j, training_data):
     t1_exists = num_reviews_with_zero_val > 0           # gaurd against height 0 matrices 
     t2_exists = num_reviews_with_nonzero_val > 0        # throwing errors
     t1, t2 = None, None                                 # placeholder values
-    col_word_generator = (elem[0] for elem in col_word.toarray())
-    t1_numpy_array, t2_numpy_array = None, None
-    for master_row_index, word_count in enumerate(col_word_generator):
-        next_row = training_data[master_row_index, :].toarray()
-        if word_count == 0:
-            assert t1_exists, "if word count is 0, we should have a left tree!"
-            if t1_numpy_array is None:
-                t1_numpy_array = next_row
-            else:
-                t1_numpy_array = np.append(t1_numpy_array, next_row, 0)
-        elif word_count != 0:
-            assert t2_exists, "if word count is nonzero, we should have a right tree!"
-            if t2_numpy_array is None:
-                t2_numpy_array = next_row
-            else:
-                t2_numpy_array = np.append(t1_numpy_array, next_row, 0)
-        else:
-            raise "should not happen!"
+    t1_rows = tuple(elem[0] for elem in col_word.toarray() if elem[0] == 0)
+    t2_rows = tuple(elem[0] for elem in col_word.toarray() if elem[0] == 0)
     if t1_exists:
-        t1 = ss.csr_matrix(t1_numpy_array)
+        t1 = training_data[t1_rows, :]
     if t2_exists:
-        t2 = ss.csr_matrix(t2_numpy_array)
+        t2 = training_data[t2_rows, :]
     
     # Calculate p(t1), p(t2)
     p_t1 = float(num_reviews_with_zero_val)/total_num_reviews
@@ -108,12 +92,14 @@ def informationGain(j, training_data):
     entropy_t1 = 0.0                                    # placeholder value
     preserved_columns_1 = None                          # placeholder value
     if t1_exists:   
+        t1 = t1.tocsr()
         entropy_t1 = calc_entropy_of_matrix(t1)
         t1, preserved_columns_1 = removeZeroColumnsOfMatrix(t1, nonremovable=total_num_cols-1)
                                         
     entropy_t2 = 0.0                                    # placeholder value
     preserved_columns_2 = None                          # placeholder value
     if t2_exists:
+        t2 = t2.tocsr()
         entropy_t2 = calc_entropy_of_matrix(t2)
         t2, preserved_columns_2 = removeZeroColumnsOfMatrix(t2, nonremovable=total_num_cols-1)              
 

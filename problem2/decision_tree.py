@@ -99,17 +99,16 @@ def train(PN, training_data):
     ## Base Case
     num_positive_reviews = training_data.sum(axis=0)[0,-1]   # sum of entries in far right column
     num_reviews = training_data.get_shape()[0]
-    if num_positive_reviews == num_reviews:                  # all reviews positive
+    if depth == MAX_DEPTH:                                   # hit max depth
+        tree = makeNonconclusiveLeafNode(tree, num_positive_reviews, num_reviews)
+        return tree
+    elif num_positive_reviews == num_reviews:                # all reviews positive
         tree.node_label = 1
         return tree
     elif num_positive_reviews == 0:                          # all reviews negative
         tree.node_label = 0
         return tree
     elif training_data.get_shape()[1] == 1:                  # mixed reviews, but no words left to decide on
-        tree = makeNonconclusiveLeafNode(tree, num_positive_reviews, num_reviews)
-        return tree
-    elif depth == MAX_DEPTH:                                 # hit max depth
-        print "hit max depth"
         tree = makeNonconclusiveLeafNode(tree, num_positive_reviews, num_reviews)
         return tree
 

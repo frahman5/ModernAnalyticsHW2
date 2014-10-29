@@ -1,8 +1,288 @@
 *** RUNNING kNN with k ranging from 5 to 21 ***
+Ran knn with k=5, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78278429]
+ [ 0.78278429  1.        ]]
+-->Root Mean Squared Error: 301.195949508
+-->Mean Absolute Error: 199
+Ran knn with k=5, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75157412]
+ [ 0.75157412  1.        ]]
+-->Root Mean Squared Error: 348.370492436
+-->Mean Absolute Error: 232
+Ran knn with k=5, using <function <lambda> at 0x10f9ae410> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78278429]
+ [ 0.78278429  1.        ]]
+-->Root Mean Squared Error: 301.195949508
+-->Mean Absolute Error: 199
+Ran knn with k=6, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78030111]
+ [ 0.78030111  1.        ]]
+-->Root Mean Squared Error: 304.450324355
+-->Mean Absolute Error: 202
+Ran knn with k=6, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75614628]
+ [ 0.75614628  1.        ]]
+-->Root Mean Squared Error: 345.136204997
+-->Mean Absolute Error: 229
+Ran knn with k=6, using <function <lambda> at 0x10f9aec80> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78030111]
+ [ 0.78030111  1.        ]]
+-->Root Mean Squared Error: 304.450324355
+-->Mean Absolute Error: 202
+Ran knn with k=7, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.76605004]
+ [ 0.76605004  1.        ]]
+-->Root Mean Squared Error: 309.672407554
+-->Mean Absolute Error: 206
+Ran knn with k=7, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75449879]
+ [ 0.75449879  1.        ]]
+-->Root Mean Squared Error: 344.207786083
+-->Mean Absolute Error: 228
+Ran knn with k=7, using <function <lambda> at 0x10f9aeed8> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.76605004]
+ [ 0.76605004  1.        ]]
+-->Root Mean Squared Error: 309.672407554
+-->Mean Absolute Error: 206
 *** RUNNING kNN with k ranging from 5 to 21 ***
-*** RUNNING kNN with k ranging from 5 to 21 ***
-*** RUNNING kNN with k ranging from 5 to 21 ***
-*** RUNNING kNN with k ranging from 5 to 21 ***
-*** RUNNING kNN with k ranging from 5 to 21 ***
-*** RUNNING kNN with k ranging from 5 to 21 ***
+Ran knn with k=5, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78278429]
+ [ 0.78278429  1.        ]]
+-->Root Mean Squared Error: 301.195949508
+-->Mean Absolute Error: 199
+Ran knn with k=5, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75157412]
+ [ 0.75157412  1.        ]]
+-->Root Mean Squared Error: 348.370492436
+-->Mean Absolute Error: 232
+Ran knn with k=5, using <function <lambda> at 0x1111b1410> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78278429]
+ [ 0.78278429  1.        ]]
+-->Root Mean Squared Error: 301.195949508
+-->Mean Absolute Error: 199
+Ran knn with k=6, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78030111]
+ [ 0.78030111  1.        ]]
+-->Root Mean Squared Error: 304.450324355
+-->Mean Absolute Error: 202
+Ran knn with k=6, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75614628]
+ [ 0.75614628  1.        ]]
+-->Root Mean Squared Error: 345.136204997
+-->Mean Absolute Error: 229
+Ran knn with k=6, using <function <lambda> at 0x1111b1c80> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78030111]
+ [ 0.78030111  1.        ]]
+-->Root Mean Squared Error: 304.450324355
+-->Mean Absolute Error: 202
+Ran knn with k=7, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.76605004]
+ [ 0.76605004  1.        ]]
+-->Root Mean Squared Error: 309.672407554
+-->Mean Absolute Error: 206
+Ran knn with k=7, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75449879]
+ [ 0.75449879  1.        ]]
+-->Root Mean Squared Error: 344.207786083
+-->Mean Absolute Error: 228
+Ran knn with k=7, using <function <lambda> at 0x1111b1ed8> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.76605004]
+ [ 0.76605004  1.        ]]
+-->Root Mean Squared Error: 309.672407554
+-->Mean Absolute Error: 206
+Ran knn with k=8, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.77380282]
+ [ 0.77380282  1.        ]]
+-->Root Mean Squared Error: 305.113093787
+-->Mean Absolute Error: 204
+Ran knn with k=8, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75466414]
+ [ 0.75466414  1.        ]]
+-->Root Mean Squared Error: 340.997067436
+-->Mean Absolute Error: 226
+Ran knn with k=8, using <function <lambda> at 0x1111b1b90> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.77380282]
+ [ 0.77380282  1.        ]]
+-->Root Mean Squared Error: 305.113093787
+-->Mean Absolute Error: 204
+Ran knn with k=9, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75843567]
+ [ 0.75843567  1.        ]]
+-->Root Mean Squared Error: 312.800255754
+-->Mean Absolute Error: 208
+Ran knn with k=9, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.76667059]
+ [ 0.76667059  1.        ]]
+-->Root Mean Squared Error: 329.539072039
+-->Mean Absolute Error: 220
+Ran knn with k=9, using <function <lambda> at 0x1111b1a28> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75843567]
+ [ 0.75843567  1.        ]]
+-->Root Mean Squared Error: 312.800255754
+-->Mean Absolute Error: 208
+Ran knn with k=10, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74989046]
+ [ 0.74989046  1.        ]]
+-->Root Mean Squared Error: 316.921125834
+-->Mean Absolute Error: 211
+Ran knn with k=10, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78456028]
+ [ 0.78456028  1.        ]]
+-->Root Mean Squared Error: 312.886560913
+-->Mean Absolute Error: 216
+Ran knn with k=10, using <function <lambda> at 0x1111b1b18> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74989046]
+ [ 0.74989046  1.        ]]
+-->Root Mean Squared Error: 316.921125834
+-->Mean Absolute Error: 211
+Ran knn with k=11, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.         0.7485479]
+ [ 0.7485479  1.       ]]
+-->Root Mean Squared Error: 315.406087449
+-->Mean Absolute Error: 211
+Ran knn with k=11, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.         0.7867494]
+ [ 0.7867494  1.       ]]
+-->Root Mean Squared Error: 311.634401182
+-->Mean Absolute Error: 215
+Ran knn with k=11, using <function <lambda> at 0x1111b1aa0> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.         0.7485479]
+ [ 0.7485479  1.       ]]
+-->Root Mean Squared Error: 315.406087449
+-->Mean Absolute Error: 211
+Ran knn with k=12, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74710816]
+ [ 0.74710816  1.        ]]
+-->Root Mean Squared Error: 316.10283137
+-->Mean Absolute Error: 211
+Ran knn with k=12, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78785495]
+ [ 0.78785495  1.        ]]
+-->Root Mean Squared Error: 311.632796734
+-->Mean Absolute Error: 214
+Ran knn with k=12, using <function <lambda> at 0x1111b1410> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74710816]
+ [ 0.74710816  1.        ]]
+-->Root Mean Squared Error: 316.10283137
+-->Mean Absolute Error: 211
+Ran knn with k=13, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74467881]
+ [ 0.74467881  1.        ]]
+-->Root Mean Squared Error: 317.151383412
+-->Mean Absolute Error: 210
+Ran knn with k=13, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78840884]
+ [ 0.78840884  1.        ]]
+-->Root Mean Squared Error: 310.336913692
+-->Mean Absolute Error: 213
+Ran knn with k=13, using <function <lambda> at 0x1111b1c08> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74467881]
+ [ 0.74467881  1.        ]]
+-->Root Mean Squared Error: 317.151383412
+-->Mean Absolute Error: 210
+Ran knn with k=14, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73806875]
+ [ 0.73806875  1.        ]]
+-->Root Mean Squared Error: 320.975076914
+-->Mean Absolute Error: 212
+Ran knn with k=14, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78470431]
+ [ 0.78470431  1.        ]]
+-->Root Mean Squared Error: 310.87135603
+-->Mean Absolute Error: 213
+Ran knn with k=14, using <function <lambda> at 0x1111b1ed8> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73806875]
+ [ 0.73806875  1.        ]]
+-->Root Mean Squared Error: 320.975076914
+-->Mean Absolute Error: 212
+Ran knn with k=15, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73393676]
+ [ 0.73393676  1.        ]]
+-->Root Mean Squared Error: 323.213551696
+-->Mean Absolute Error: 214
+Ran knn with k=15, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78421144]
+ [ 0.78421144  1.        ]]
+-->Root Mean Squared Error: 311.027329989
+-->Mean Absolute Error: 214
+Ran knn with k=15, using <function <lambda> at 0x1111b1938> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73393676]
+ [ 0.73393676  1.        ]]
+-->Root Mean Squared Error: 323.213551696
+-->Mean Absolute Error: 214
+Ran knn with k=16, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73549693]
+ [ 0.73549693  1.        ]]
+-->Root Mean Squared Error: 321.871092209
+-->Mean Absolute Error: 213
+Ran knn with k=16, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78652333]
+ [ 0.78652333  1.        ]]
+-->Root Mean Squared Error: 308.011363427
+-->Mean Absolute Error: 212
+Ran knn with k=16, using <function <lambda> at 0x1111b1a28> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73549693]
+ [ 0.73549693  1.        ]]
+-->Root Mean Squared Error: 321.871092209
+-->Mean Absolute Error: 213
+Ran knn with k=17, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73698413]
+ [ 0.73698413  1.        ]]
+-->Root Mean Squared Error: 320.240534599
+-->Mean Absolute Error: 211
+Ran knn with k=17, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78589727]
+ [ 0.78589727  1.        ]]
+-->Root Mean Squared Error: 308.116860947
+-->Mean Absolute Error: 212
+Ran knn with k=17, using <function <lambda> at 0x1111b1c80> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.73684285]
+ [ 0.73684285  1.        ]]
+-->Root Mean Squared Error: 320.285809864
+-->Mean Absolute Error: 211
+Ran knn with k=18, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74801676]
+ [ 0.74801676  1.        ]]
+-->Root Mean Squared Error: 311.534909761
+-->Mean Absolute Error: 204
+Ran knn with k=18, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78674281]
+ [ 0.78674281  1.        ]]
+-->Root Mean Squared Error: 307.144916937
+-->Mean Absolute Error: 211
+Ran knn with k=18, using <function <lambda> at 0x1111b1aa0> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74801676]
+ [ 0.74801676  1.        ]]
+-->Root Mean Squared Error: 311.534909761
+-->Mean Absolute Error: 204
+Ran knn with k=19, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75661502]
+ [ 0.75661502  1.        ]]
+-->Root Mean Squared Error: 305.720460552
+-->Mean Absolute Error: 201
+Ran knn with k=19, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78994868]
+ [ 0.78994868  1.        ]]
+-->Root Mean Squared Error: 303.50782527
+-->Mean Absolute Error: 209
+Ran knn with k=19, using <function <lambda> at 0x1111b1b90> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75661502]
+ [ 0.75661502  1.        ]]
+-->Root Mean Squared Error: 305.720460552
+-->Mean Absolute Error: 201
+Ran knn with k=20, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75858615]
+ [ 0.75858615  1.        ]]
+-->Root Mean Squared Error: 303.530888049
+-->Mean Absolute Error: 201
+Ran knn with k=20, using distance weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.78975549]
+ [ 0.78975549  1.        ]]
+-->Root Mean Squared Error: 303.3743562
+-->Mean Absolute Error: 208
+Ran knn with k=20, using <function <lambda> at 0x1111b1c08> weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.75858615]
+ [ 0.75858615  1.        ]]
+-->Root Mean Squared Error: 303.530888049
+-->Mean Absolute Error: 201
 *** RUNNING kNN with k ranging from 5 to 21 ***

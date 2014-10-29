@@ -9,8 +9,8 @@ All constants should go here.
 # TRAIN_DATA = "/Users/aub3/code/taxidata/train_data.csv" # contains every 20th trip from trip_data_2.csv
 
 
-# ROOT = "/Users/rachel/CS5785/ModernAnalyticsHW2"
-ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
+ROOT = "/Users/rachel/CS5785/ModernAnalyticsHW2"
+#ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
 # ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
 # ROOT = "/home/faiyamrahman/ModernAnalyticsHW2"
 
@@ -51,5 +51,6 @@ RESULTS1B = ROOT + "/output/results1B.txt"
 RESULTS1C = ROOT + "/output/results1C.txt"
 RESULTS1D = ROOT + "/output/results1D.txt"
 RESULTS1E = ROOT + "/output/results1E.txt"
+RESULTS1ETEST = ROOT + "/output/results1Etest.txt"
 
 RESULTS2B = ROOT + "/output/results2B.txt"

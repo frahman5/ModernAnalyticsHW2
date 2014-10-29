@@ -1,6 +1,7 @@
 __author__ = 'Faiyam Rahman, Rachel mayer'
 
 from config import RESULTS1E
+import numpy as np
 
 def main(output=RESULTS1E):
     """
@@ -21,7 +22,7 @@ def main(output=RESULTS1E):
 
 
 if __name__ == '__main__':
-    import numpy as np
+    #import numpy as np
     ## Short unit test for medianVote
     # start_array_1 = np.array([1.223452345, 2.23452345, 3.12345, 4.23452345, 5.23452345, 3.12345])
     # assert np.array_equal(medianVote(start_array_1), np.array((0, 0, 0.5, 0, 0, 0.5)))
@@ -31,4 +32,3 @@ if __name__ == '__main__':
     # print "all tests passed yo!"
     
     main()
-

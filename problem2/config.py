@@ -4,8 +4,8 @@ All constants should go here.
 """
 
 
-# ROOT = "/Users/rachel/CS5785/ModernAnalyticsHW2"
-ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
+ROOT = "/Users/rachel/CS5785/ModernAnalyticsHW2"
+#ROOT = "/Users/faiyamrahman/Documents/CTech/ModernAnalytics/Homework2"
 
 
 ## Problem 2 data locations

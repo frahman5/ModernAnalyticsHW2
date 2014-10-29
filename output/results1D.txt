@@ -60,3 +60,13 @@ Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5
  [ 0.72627719  1.        ]]
 -->Root Mean Squared Error: 385.871740349
 -->Mean Absolute Error: 260
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 1000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.74454796]
+ [ 0.74454796  1.        ]]
+-->Root Mean Squared Error: 351.887766198
+-->Mean Absolute Error: 238
+Ran knn with k=1, using uniform weighting (voting). Trained on /Users/rachel/CS5785/ModernAnalyticsHW2/data/train_data.csv. Tested on first 10000 rows of /Users/rachel/CS5785/ModernAnalyticsHW2/data/trip_data_1.csv. Stats:
+-->Correlation Coefficient Matrix: [[ 1.          0.72627719]
+ [ 0.72627719  1.        ]]
+-->Root Mean Squared Error: 385.871740349
+-->Mean Absolute Error: 260

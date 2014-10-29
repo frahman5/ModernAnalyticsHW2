@@ -1,56 +1,9 @@
 
+**** SUCCESSFUL 2B Output ****
 30 Most Frequent Unigrams
-[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('these', 247329), ('good', 252549), ('so', 265314), ('like', 269642), ('on', 280579), ('as', 289605), ('t', 314260), ('they', 318665), ('was', 319120), ('s', 320736), ('are', 326708), ('have', 350361), ('with', 363336), ('not', 368841), ('you', 381556), ('but', 401656), ('that', 458696), ('my', 493105), ('in', 562289), ('for', 593096), ('br', 647122), ('this', 699305), ('is', 753238), ('of', 822668), ('to', 1036816), ('it', 1106226), ('a', 1276976), ('and', 1325118), ('i', 1717187), ('the', 1928184)]
 30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('taste', 58095), ('be', 59167), ('so', 62696), ('on', 66255), ('are', 67224), ('as', 72436), ('like', 76097), ('s', 76249), ('have', 78649), ('they', 78761), ('with', 81225), ('you', 83104), ('t', 100343), ('my', 101447), ('was', 112447), ('but', 125475), ('that', 127896), ('for', 128660), ('in', 134455), ('not', 144182), ('is', 169244), ('br', 171874), ('this', 174901), ('of', 215760), ('to', 258488), ('it', 279223), ('and', 283501), ('a', 288134), ('i', 448448), ('the', 524781)]
 30 Most Frequent Positive Unigrams
-[('and', 3), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
+[('these', 197166), ('so', 202618), ('good', 202799), ('was', 206673), ('t', 213917), ('on', 214324), ('as', 217169), ('great', 219086), ('not', 224659), ('they', 239904), ('s', 244487), ('are', 259484), ('have', 271712), ('but', 276181), ('with', 282111), ('you', 298452), ('that', 330800), ('my', 391658), ('in', 427834), ('for', 464436), ('br', 475248), ('this', 524404), ('is', 583994), ('of', 606908), ('to', 778328), ('it', 827003), ('a', 988842), ('and', 1041617), ('i', 1268739), ('the', 1403403)]
 
-30 Most Frequent Unigrams
-[('a', 2), ('all', 1), ('and', 3), ('appreciates', 1), ('be', 1), ('better', 2), ('canned', 1), ('finicky', 1), ('food', 2), ('good', 2), ('have', 2), ('i', 1), ('is', 1), ('it', 1), ('labrador', 1), ('like', 1), ('looks', 1), ('meat', 1), ('more', 1), ('most', 1), ('processed', 1), ('product', 2), ('quality', 2), ('several', 1), ('smells', 1), ('stew', 1), ('than', 2), ('them', 1), ('to', 1), ('vitality', 1)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
-30 Most Frequent Positive Unigrams
-[('a', 2), ('all', 1), ('and', 3), ('appreciates', 1), ('be', 1), ('better', 2), ('canned', 1), ('finicky', 1), ('food', 2), ('good', 2), ('have', 2), ('i', 1), ('is', 1), ('it', 1), ('labrador', 1), ('like', 1), ('looks', 1), ('meat', 1), ('more', 1), ('most', 1), ('processed', 1), ('product', 2), ('quality', 2), ('several', 1), ('smells', 1), ('stew', 1), ('than', 2), ('them', 1), ('to', 1), ('vitality', 1)]
-
-30 Most Frequent Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-
-30 Most Frequent Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-
-30 Most Frequent Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-
-30 Most Frequent Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0), ('', 0)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-
-30 Most Frequent Unigrams
-[('advertised', 1), ('looks', 1), ('sure', 1), ('an', 1), ('it', 1), ('arrived', 1), ('is', 1), ('unsalted', 1), ('labrador', 1), ('all', 1), ('represent', 1), ('jumbo', 2), ('this', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('not', 2), ('if', 2), ('food', 2), ('good', 2), ('peanuts', 2), ('to', 2), ('better', 2), ('quality', 2), ('have', 2), ('as', 3), ('and', 3), ('product', 4), ('the', 5)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('or', 1), ('error', 1), ('labeled', 1), ('this', 1), ('sized', 1), ('were', 1), ('intended', 1), ('vendor', 1), ('was', 1), ('to', 1), ('actually', 1), ('salted', 1), ('small', 1), ('advertised', 1), ('sure', 1), ('an', 1), ('arrived', 1), ('unsalted', 1), ('represent', 1), ('jumbo', 2), ('not', 2), ('if', 2), ('product', 2), ('peanuts', 2), ('the', 3), ('as', 3)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]
-
-30 Most Frequent Unigrams
-[('advertised', 1), ('looks', 1), ('sure', 1), ('an', 1), ('it', 1), ('arrived', 1), ('is', 1), ('unsalted', 1), ('labrador', 1), ('all', 1), ('represent', 1), ('jumbo', 2), ('this', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('not', 2), ('if', 2), ('food', 2), ('good', 2), ('peanuts', 2), ('to', 2), ('better', 2), ('quality', 2), ('have', 2), ('as', 3), ('and', 3), ('product', 4), ('the', 5)]
-30 Most Frequent Negative Unigrams
-[('', 0), ('', 0), ('', 0), ('', 0), ('or', 1), ('error', 1), ('labeled', 1), ('this', 1), ('sized', 1), ('were', 1), ('intended', 1), ('vendor', 1), ('was', 1), ('to', 1), ('actually', 1), ('salted', 1), ('small', 1), ('advertised', 1), ('sure', 1), ('an', 1), ('arrived', 1), ('unsalted', 1), ('represent', 1), ('jumbo', 2), ('not', 2), ('if', 2), ('product', 2), ('peanuts', 2), ('the', 3), ('as', 3)]
-30 Most Frequent Positive Unigrams
-[('like', 1), ('finicky', 1), ('stew', 1), ('them', 1), ('most', 1), ('vitality', 1), ('appreciates', 1), ('be', 1), ('more', 1), ('several', 1), ('to', 1), ('processed', 1), ('smells', 1), ('looks', 1), ('it', 1), ('is', 1), ('labrador', 1), ('all', 1), ('the', 2), ('dog', 2), ('of', 2), ('a', 2), ('than', 2), ('food', 2), ('good', 2), ('product', 2), ('better', 2), ('quality', 2), ('have', 2), ('and', 3)]

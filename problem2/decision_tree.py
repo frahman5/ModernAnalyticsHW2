@@ -2,8 +2,6 @@ import scan
 from utils import entropy, informationGain, freq
 import scipy.sparse as ss
 
-## make scan.scan run fast enough
-## run it and be done!
 class DecisionTree(object):
 
     node_label = None  # takes the values 0, 1, None. If has the values 0 or 1, then this is a leaf
@@ -19,7 +17,6 @@ class DecisionTree(object):
             return self.left.go(data)
 
     def go(self, data):
-        print "decision word: {}".format(self.decision_word)
         if self.node_label is not None:
             return self.node_label  
         return self.decision(data)
@@ -99,13 +96,19 @@ def train(PN, training_data):
     elif num_positive_reviews == 0:                          # all reviews negative
         tree.node_label = 0
         return tree
+    elif training_data.get_shape()[1] == 1:                  # mixed reviews, but no words left to decide on
+        tree.node_label = 0
+        if float(num_positive_reviews)/ num_reviews > 0.5:
+            tree.node_label = 1
+        return tree
 
     ## Recursive Case
         # Determine which word offers maximum information gain
-    maxGain = 0
+    maxGain = -1 * float('inf')                              # in case all igs are zero
     left_tree, right_tree, decision_word = None, None, None
     left_column_indices, right_column_indices = None, None
-    for index, word in enumerate(PN):
+    for index, review_data in enumerate(PN):
+        word, score = review_data
         ig_x, t1, t2, pn1_indices, pn2_indices = informationGain(index, training_data)
         if ig_x > maxGain:
             maxGain = ig_x
@@ -114,17 +117,31 @@ def train(PN, training_data):
             decision_word = word
             left_column_indices = pn1_indices
             right_column_indices = pn2_indices
-    assert left_tree is not None, "we should have a left tree!"
-    assert right_tree is not None, "we should have a right tree!"
 
-        # make appropriate decision
+        ## If the left tree exists (i.e there are training data that dont 
+        ## have the word), then recurse. Otherwise label the left tree
+        ## with whatever is the majority score of the reviews
+        ## in the current training data. Do the same for right_tree
     tree.decision_word = decision_word 
-    tree.left = train((word for index, word in enumerate(PN) if index in left_column_indices),
-                      left_tree)
-    tree.right = train((word for index, word in enumerate(PN) if index in right_column_indices),
-                       right_tree)
+    if left_tree is not None:
+        tree.left = train((word for index, word in enumerate(PN) if index in 
+                           left_column_indices), left_tree)
+    else:
+        tree.left = makeNonconclusiveLeafNode(tree.left, num_positive_reviews, num_reviews)
+    if right_tree is not None:
+        tree.right = train((word for index, word in enumerate(PN) if index in 
+                            right_column_indices), right_tree)
+    else:
+        tree.right = makeNonconclusiveLeafNode(tree.right, num_positive_reviews, num_reviews)
 
     return tree
+
+def makeNonconclusiveLeafNode(decision_tree_child, num_positive_reviews, num_reviews):
+    decision_tree_child = DecisionTree()
+    decision_tree_child.node_label = 0
+    if float(num_positive_reviews) / num_reviews > 0.5:
+        decision_tree_child.node_label = 1
+    return decision_tree_child
 
 def test(decision_tree, data):
     from config import RESULTS2F
@@ -136,10 +153,11 @@ def test(decision_tree, data):
         if test_result == score:
             num_correct += 1.0
 
-    percent_accurate = num_correct / total_reviews
+    percent_accurate = round((num_correct / total_reviews) * 100, 4)
     with open(RESULTS2F, 'a') as f:
         f.write('\n')
         f.write('{}% correct of {}'.format(percent_accurate, total_reviews))
+        print "Wrote test results to: {}".format(RESULTS2F)
 
     return percent_accurate
 

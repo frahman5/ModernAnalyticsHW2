@@ -23,7 +23,12 @@ def calc_entropy_of_matrix(sparse_matrix):
     """
     column_sums = sparse_matrix.sum(axis=0)[0, :-1]
     total = column_sums.sum(axis=1)[0, 0]
-    frequencies = tuple(np.array(column_sums/total)[0])
+
+    # Gaurd against corner case
+    if total == 0:
+        frequencies = tuple(np.array(column_sums)[0])
+    else:
+        frequencies = tuple(np.array(column_sums/total)[0])
 
     return entropy(frequencies)
 
@@ -67,15 +72,22 @@ def informationGain(j, training_data):
     num_reviews_with_zero_val = total_num_reviews - num_reviews_with_nonzero_val
 
     # Make t1 and t2
-    t1 = ss.lil_matrix((num_reviews_with_zero_val, total_num_cols), dtype='float')
-    t2 = ss.lil_matrix((num_reviews_with_nonzero_val, total_num_cols), dtype='float')
+    t1_exists = num_reviews_with_zero_val > 0           # gaurd against height 0 matrices 
+    t2_exists = num_reviews_with_nonzero_val > 0        # throwing errors
+    t1, t2 = None, None                                 # placeholder values
+    if t1_exists:
+        t1 = ss.lil_matrix((num_reviews_with_zero_val, total_num_cols), dtype='float')
+    if t2_exists:
+        t2 = ss.lil_matrix((num_reviews_with_nonzero_val, total_num_cols), dtype='float')
     col_word_generator = (elem[0] for elem in col_word.toarray())
     t1_row_index, t2_row_index = 0, 0
     for master_row_index, word_count in enumerate(col_word_generator):
         if word_count == 0:
+            assert t1_exists, "if word count is 0, we should have a left tree!"
             t1[t1_row_index, :] = training_data[master_row_index, :]
             t1_row_index += 1
         elif word_count != 0:
+            assert t2_exists, "if word count is nonzero, we should have a right tree"
             t2[t2_row_index, :] = training_data[master_row_index, :]
             t2_row_index += 1
         else:
@@ -85,17 +97,25 @@ def informationGain(j, training_data):
     p_t1 = float(num_reviews_with_zero_val)/total_num_reviews
     p_t2 = float(num_reviews_with_nonzero_val)/total_num_reviews
 
-    # Calculate entropy(t1), entropy(t2)
-    entropy_t1 = calc_entropy_of_matrix(t1)
-    entropy_t2 = calc_entropy_of_matrix(t2)
+    # Calculate entropy(t1), entropy(t2), and transform matrices if needbe
+    entropy_t1 = 0.0                                    # placeholder value
+    preserved_columns_1 = None                          # placeholder value
+    if t1_exists:   
+        entropy_t1 = calc_entropy_of_matrix(t1)
+        t1, preserved_columns_1 = removeZeroColumnsOfMatrix(t1, nonremovable=total_num_cols-1)
+        t1 = t1.tocsr()
+                                        
+    entropy_t2 = 0.0                                    # placeholder value
+    preserved_columns_2 = None                          # placeholder value
+    if t2_exists:
+        entropy_t2 = calc_entropy_of_matrix(t2)
+        t2, preserved_columns_2 = removeZeroColumnsOfMatrix(t2, nonremovable=total_num_cols-1) 
+        t2 = t2.tocsr()              
 
     ## Calculate information gain, prune t1 and t2,  and return them
     information_gain = entropy_s - (p_t1 * entropy_t1) - (p_t2 * entropy_t2)
-    # import pdb
-    # pdb.set_trace()
-    t1, preserved_columns_1 = removeZeroColumnsOfMatrix(t1, nonremovable=total_num_cols-1)
-    t2, preserved_columns_2 = removeZeroColumnsOfMatrix(t2, nonremovable=total_num_cols-1)
-    return information_gain, t1.tocsr(), t2.tocsr(), preserved_columns_1, preserved_columns_2
+    
+    return information_gain, t1, t2, preserved_columns_1, preserved_columns_2
 
 # natural language processing stuff
 def freq(reviewAsListOfStrings):

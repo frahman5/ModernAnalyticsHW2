@@ -60,6 +60,7 @@ def makeReviewMatrix(PN, training_data):
 # http://docs.scipy.org/doc/scipy-0.14.0/reference/sparse.html
 depth = 0
 MAX_DEPTH = 20
+# @profile
 def train(PN, training_data):
     """
     ListOfStrings ListOfTuples|scipy.sparse.csr_matrix -> DecisionTree

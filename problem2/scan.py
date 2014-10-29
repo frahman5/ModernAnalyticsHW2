@@ -12,8 +12,12 @@ STOPWORDS = stopwords.words('english')
 # read in a file
 def scan(filename, exclude_stopwords = False, binary_label = False):
     data = []
+    i = 0
     with open(filename, 'r') as f:
         while True:
+            i += 1
+            if i == 1000:
+                break
             elements = {}
 
             for line in f:

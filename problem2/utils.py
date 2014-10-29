@@ -46,6 +46,7 @@ def removeZeroColumnsOfMatrix(sparse_matrix, nonremovable):
 
     return sparse_matrix[:, unique_nonzero_columns], unique_nonzero_columns
 
+# @profile
 def informationGain(j, training_data):
     """
     int scipy.sparse.csr_matrix -> float scipy.sparse.csr_matrix scipy.sparse.csr_matrix tuple tuple
@@ -61,6 +62,7 @@ def informationGain(j, training_data):
           and t2 is the only the rows in training_data with 1 in column word
     """
     import scipy.sparse as ss
+    import numpy as np
 
     ## Calculate Entropy(S)
     entropy_s = calc_entropy_of_matrix(training_data)
@@ -75,23 +77,28 @@ def informationGain(j, training_data):
     t1_exists = num_reviews_with_zero_val > 0           # gaurd against height 0 matrices 
     t2_exists = num_reviews_with_nonzero_val > 0        # throwing errors
     t1, t2 = None, None                                 # placeholder values
-    if t1_exists:
-        t1 = ss.lil_matrix((num_reviews_with_zero_val, total_num_cols), dtype='float')
-    if t2_exists:
-        t2 = ss.lil_matrix((num_reviews_with_nonzero_val, total_num_cols), dtype='float')
     col_word_generator = (elem[0] for elem in col_word.toarray())
-    t1_row_index, t2_row_index = 0, 0
+    t1_numpy_array, t2_numpy_array = None, None
     for master_row_index, word_count in enumerate(col_word_generator):
+        next_row = training_data[master_row_index, :].toarray()
         if word_count == 0:
             assert t1_exists, "if word count is 0, we should have a left tree!"
-            t1[t1_row_index, :] = training_data[master_row_index, :]
-            t1_row_index += 1
+            if t1_numpy_array is None:
+                t1_numpy_array = next_row
+            else:
+                t1_numpy_array = np.append(t1_numpy_array, next_row, 0)
         elif word_count != 0:
-            assert t2_exists, "if word count is nonzero, we should have a right tree"
-            t2[t2_row_index, :] = training_data[master_row_index, :]
-            t2_row_index += 1
+            assert t2_exists, "if word count is nonzero, we should have a right tree!"
+            if t2_numpy_array is None:
+                t2_numpy_array = next_row
+            else:
+                t2_numpy_array = np.append(t1_numpy_array, next_row, 0)
         else:
             raise "should not happen!"
+    if t1_exists:
+        t1 = ss.csr_matrix(t1_numpy_array)
+    if t2_exists:
+        t2 = ss.csr_matrix(t2_numpy_array)
     
     # Calculate p(t1), p(t2)
     p_t1 = float(num_reviews_with_zero_val)/total_num_reviews
@@ -103,14 +110,12 @@ def informationGain(j, training_data):
     if t1_exists:   
         entropy_t1 = calc_entropy_of_matrix(t1)
         t1, preserved_columns_1 = removeZeroColumnsOfMatrix(t1, nonremovable=total_num_cols-1)
-        t1 = t1.tocsr()
                                         
     entropy_t2 = 0.0                                    # placeholder value
     preserved_columns_2 = None                          # placeholder value
     if t2_exists:
         entropy_t2 = calc_entropy_of_matrix(t2)
-        t2, preserved_columns_2 = removeZeroColumnsOfMatrix(t2, nonremovable=total_num_cols-1) 
-        t2 = t2.tocsr()              
+        t2, preserved_columns_2 = removeZeroColumnsOfMatrix(t2, nonremovable=total_num_cols-1)              
 
     ## Calculate information gain, prune t1 and t2,  and return them
     information_gain = entropy_s - (p_t1 * entropy_t1) - (p_t2 * entropy_t2)

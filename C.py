@@ -19,9 +19,9 @@ def main(output=RESULTS1C):
 
     ## Extract necessary data into pandas dataframes
         # Read them in
-    numrows = 10000
+    numrows = 10000  # 10k rows
     df_train_read = pd.read_csv(TRAIN_DATA)
-    df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 100k rows, for speed
+    df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 10k rows, for speed
         # Extract desired features and drop null values
     df_test = df_test_read[features].dropna()
     df_train = df_train_read[features].dropna() 

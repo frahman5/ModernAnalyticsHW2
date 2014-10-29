@@ -51,5 +51,6 @@ RESULTS1B = ROOT + "/output/results1B.txt"
 RESULTS1C = ROOT + "/output/results1C.txt"
 RESULTS1D = ROOT + "/output/results1D.txt"
 RESULTS1E = ROOT + "/output/results1E.txt"
+RESULTS1ETEST = ROOT + "/output/results1Etest.txt"
 
 RESULTS2B = ROOT + "/output/results2B.txt"

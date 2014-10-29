@@ -19,14 +19,11 @@ def main(output=RESULTS1B):
                'dropoff_longitude', 'trip_time_in_secs']
 
     ## Extract necessary data into pandas dataframes
-    numrows = 10000
+    numrows = 100000
     df_train_read = pd.read_csv(TRAIN_DATA)
     df_test_read = pd.read_csv(TRIP_DATA_1, nrows = numrows)    # first 100k rows, for speed
     df_test = df_test_read[features].dropna()
     df_train = df_train_read[features].dropna() 
-
-    print df_test.head()
-    print df_train.head()
 
 
     ## Use sklearn to run nearest neighbors

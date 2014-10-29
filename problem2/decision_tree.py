@@ -58,6 +58,8 @@ def makeReviewMatrix(PN, training_data):
     
 # http://en.wikipedia.org/wiki/ID3_algorithm
 # http://docs.scipy.org/doc/scipy-0.14.0/reference/sparse.html
+depth = 0
+MAX_DEPTH = 20
 def train(PN, training_data):
     """
     ListOfStrings ListOfTuples|scipy.sparse.csr_matrix -> DecisionTree
@@ -81,11 +83,17 @@ def train(PN, training_data):
     Returns a decision Tree based on the ID3 algorithm to determine whether a 
     review is positive or negative
     """
+    global depth                                            # to limit tree depth
+    global MAX_DEPTH
+
     tree = DecisionTree()
+    depth += 1
+    print "depth: {}".format(depth)
 
     # Construct a sparse matrix if necessary
     if type(training_data) == list:
         training_data = makeReviewMatrix(PN, training_data)
+        print "made master training data matrix"
 
     ## Base Case
     num_positive_reviews = training_data.sum(axis=0)[0,-1]   # sum of entries in far right column
@@ -97,9 +105,11 @@ def train(PN, training_data):
         tree.node_label = 0
         return tree
     elif training_data.get_shape()[1] == 1:                  # mixed reviews, but no words left to decide on
-        tree.node_label = 0
-        if float(num_positive_reviews)/ num_reviews > 0.5:
-            tree.node_label = 1
+        tree = makeNonconclusiveLeafNode(tree, num_positive_reviews, num_reviews)
+        return tree
+    elif depth == MAX_DEPTH:                                 # hit max depth
+        print "hit max depth"
+        tree = makeNonconclusiveLeafNode(tree, num_positive_reviews, num_reviews)
         return tree
 
     ## Recursive Case

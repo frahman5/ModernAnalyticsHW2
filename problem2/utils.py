@@ -122,7 +122,3 @@ def get_unigram(review):
 def get_unigram_list(review):
     return get_unigram(review).keys()
 
-if __name__ == '__main__':
-    print entropy([1.0/2, 1.0/2])
-    # x = (5.0/14) * entropy((2.0/5, 3.0/5)) + (4.0/14) * entropy((1, 0)) + (5.0/14) * entropy((3.0/5, 2.0/5))
-    # print x

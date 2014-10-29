@@ -2,8 +2,6 @@ import scan
 from utils import entropy, informationGain, freq
 import scipy.sparse as ss
 
-## TODO: scroll all the way down
-## -> Test the code with a small set (maybe 5) of real reviews
 ## make scan.scan run fast enough
 ## run it and be done!
 class DecisionTree(object):
@@ -104,8 +102,6 @@ def train(PN, training_data):
 
     ## Recursive Case
         # Determine which word offers maximum information gain
-    # import pdb
-    # pdb.set_trace()
     maxGain = 0
     left_tree, right_tree, decision_word = None, None, None
     left_column_indices, right_column_indices = None, None
@@ -118,7 +114,6 @@ def train(PN, training_data):
             decision_word = word
             left_column_indices = pn1_indices
             right_column_indices = pn2_indices
-
     assert left_tree is not None, "we should have a left tree!"
     assert right_tree is not None, "we should have a right tree!"
 
@@ -129,12 +124,25 @@ def train(PN, training_data):
     tree.right = train((word for index, word in enumerate(PN) if index in right_column_indices),
                        right_tree)
 
-    
-
     return tree
 
-def test(data):
-    raise 'not implemented'
+def test(decision_tree, data):
+    from config import RESULTS2F
+
+    total_reviews = len(data)
+    num_correct = 0.0
+    for review_tuple, score in data:
+        test_result = decision_tree.go(review_tuple)
+        if test_result == score:
+            num_correct += 1.0
+
+    percent_accurate = num_correct / total_reviews
+    with open(RESULTS2F, 'a') as f:
+        f.write('\n')
+        f.write('{}% correct of {}'.format(percent_accurate, total_reviews))
+
+    return percent_accurate
+
 
 if __name__ == '__main__':
     PN = ['good', 'bad', 'heyyo!']
